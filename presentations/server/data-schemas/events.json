@@ -1,0 +1,47 @@
+{
+  "name": "events",
+  "title": "Events",
+  "titleProperty": "name",
+  "type": "object",
+  "properties": {
+    "name": {
+      "format": "single-line",
+      "title": "Name",
+      "type": "string",
+      "required": true
+    },
+    "featured": {
+      "title": "Featured",
+      "format": "boolean",
+      "type": "boolean"
+    },
+    "description": {
+      "title": "Description",
+      "format": "html",
+      "type": "string",
+      "required": true
+    },
+    "startTime": {
+      "type": "object",
+      "format": "date-time",
+      "title": "Start time",
+      "required": true
+    },
+    "endTime": {
+      "type": "object",
+      "format": "date-time",
+      "title": "End time"
+    },
+    "lecturer": {
+      "format": "multi-line",
+      "title": "Lecturer",
+      "type": "string"
+    },
+    "relatedLink": {
+      "type": "object",
+      "format": "entity-reference",
+      "title": "Company",
+      "referencedSchema": "morrigan.companies.articles"
+    }
+  }
+}
