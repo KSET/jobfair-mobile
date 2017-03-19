@@ -12,6 +12,26 @@
       "maxLength": 200,
       "required": true
     },
+    "webUrl": {
+      "type": "string",
+      "format": "single-line",
+      "title": "Web Url"
+    },
+    "industry": {
+      "type": "string",
+      "format": "single-line",
+      "title": "Industry"
+    },
+    "studentProfile": {
+      "type": "string",
+      "format": "multi-line",
+      "title": "Student Profile"
+    },
+    "openings": {
+      "type": "string",
+      "format": "multi-line",
+      "title": "Openings"
+    },
     "featured": {
       "type": "boolean",
       "format": "boolean",

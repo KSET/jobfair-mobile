@@ -1,10 +1,14 @@
 import React from 'react';
 import { connectStyle } from '@shoutem/theme';
+import { Linking } from 'react-native';
+import { openURL as openUrlAction } from 'shoutem.web-view';
 import {
   ScrollView,
   Screen,
   Title,
   Caption,
+  Button,
+  Text,
   Image,
   Tile,
   RichMedia,
@@ -14,6 +18,7 @@ import { NavigationBar } from '@shoutem/ui/navigation';
 
 import * as _ from 'lodash';
 import moment from 'moment';
+import { connect } from 'react-redux';
 
 import { ext } from '../const';
 import NextArticle from '../components/NextArticle';
@@ -24,6 +29,7 @@ class ArticleMediumDetailsScreen extends React.Component {
     articles: React.PropTypes.array,
     nextArticle: React.PropTypes.object,
     openArticle: React.PropTypes.func,
+    openURL: React.PropTypes.func,
   };
 
   getNavBarProps() {
@@ -83,24 +89,60 @@ class ArticleMediumDetailsScreen extends React.Component {
             <Tile styleName="text-centric md-gutter-bottom">
               <Title>{article.title.toUpperCase()}</Title>
 
-              <View styleName="horizontal md-gutter-top">
-                <Caption numberOfLines={1}>{article.newsAuthor}</Caption>
-                <Caption styleName="md-gutter-left">
-                  {moment(article.timeUpdated).fromNow()}
-                </Caption>
-              </View>
+              <View styleName="horizontal md-gutter-top"/>
             </Tile>
 
             <RichMedia
               body={article.body}
               attachments={article.attachments}
             />
+            <View styleName="solid">
+              <Title styleName="text-centric md-gutter-bottom">INDUSTRY</Title>
+              <Text>
+                {article.industry}
+              </Text>
+            </View>
+            <View styleName="solid">
+              <Title styleName="text-centric md-gutter-bottom">STUDENT PROFILE</Title>
+              <Text>
+                {article.studentProfile}
+              </Text>
+            </View>
+            <View styleName="solid">
+              <Title styleName="text-centric md-gutter-bottom">OPENINGS</Title>
+              <Text>
+                {article.openings}
+              </Text>
+            </View>
+            {this.renderWebsiteButton(article)}
             {this.renderUpNext()}
           </View>
         </ScrollView>
       </Screen>
     );
   }
+
+  renderWebsiteButton(article) {
+    const { openURL } = this.props;
+
+    if(article.webUrl) {
+      return(
+        <Button onPress={() => Linking.openURL(article.webUrl)}>
+          <Text>WEBSITE</Text>
+        </Button>
+      );
+    }
+  }
 }
 
-export default connectStyle(ext('ArticleMediumDetailsScreen'))(ArticleMediumDetailsScreen);
+export const mapStateToProps = (state, ownProps) => {
+
+};
+
+export const mapDispatchToProps = {
+  openURL: openUrlAction,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(
+  connectStyle(ext('ArticleMediumDetailsScreen'))(ArticleMediumDetailsScreen)
+);
