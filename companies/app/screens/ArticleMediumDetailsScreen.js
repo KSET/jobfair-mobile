@@ -17,6 +17,7 @@ import { NavigationBar } from '@shoutem/ui/navigation';
 import { connectStyle } from '@shoutem/theme';
 
 import * as _ from 'lodash';
+import { connect } from 'react-redux';
 
 import { ext } from '../const';
 import NextArticle from '../components/NextArticle';
@@ -85,7 +86,7 @@ class ArticleMediumDetailsScreen extends React.Component {
 
           <View styleName="solid">
             <Tile styleName="text-centric md-gutter-bottom">
-              <Title>{article.title.toUpperCase()} C</Title>
+              <Title>{article.title.toUpperCase()}</Title>
 
               <View styleName="horizontal md-gutter-top"/>
             </Tile>
