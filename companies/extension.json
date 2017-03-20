@@ -42,11 +42,6 @@
     "name":"ArticleMediumDetailsScreen",
     "title": "Regular details",
     "image": "./server/assets/screens/medium-details.png"
-  }, {
-    "name":"ArticleDetailsScreen",
-    "title": "Large photo details",
-    "image": "./server/assets/screens/large-details.png",
-    "extends": "@.ArticleMediumDetailsScreen"
   }],
   "dataSchemas": [{
     "name": "articles",
