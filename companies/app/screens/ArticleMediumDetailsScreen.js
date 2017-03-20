@@ -1,6 +1,4 @@
 import React from 'react';
-import { connectStyle } from '@shoutem/theme';
-import { Linking } from 'react-native';
 import { openURL as openUrlAction } from 'shoutem.web-view';
 import {
   ScrollView,
@@ -9,16 +7,16 @@ import {
   Caption,
   Button,
   Text,
+  Divider,
   Image,
   Tile,
   RichMedia,
   View,
 } from '@shoutem/ui';
 import { NavigationBar } from '@shoutem/ui/navigation';
+import { connectStyle } from '@shoutem/theme';
 
 import * as _ from 'lodash';
-import moment from 'moment';
-import { connect } from 'react-redux';
 
 import { ext } from '../const';
 import NextArticle from '../components/NextArticle';
@@ -66,7 +64,7 @@ class ArticleMediumDetailsScreen extends React.Component {
     if (article.image) {
       return (
         <Image
-          styleName="large"
+          styleName="medium-wide"
           source={{ uri: _.get(article, 'image.url') }}
           animationName="hero"
         />
@@ -87,33 +85,41 @@ class ArticleMediumDetailsScreen extends React.Component {
 
           <View styleName="solid">
             <Tile styleName="text-centric md-gutter-bottom">
-              <Title>{article.title.toUpperCase()}</Title>
+              <Title>{article.title.toUpperCase()} C</Title>
 
               <View styleName="horizontal md-gutter-top"/>
             </Tile>
 
+            <Divider styleName="section-header">
+              <Caption>INDUSTRY</Caption>
+            </Divider>
+
+            <RichMedia
+              body={article.industry}
+            />
+
+            <Divider styleName="section-header">
+              <Caption>STUDENT PROFILE</Caption>
+            </Divider>
+            <RichMedia
+              body={article.studentProfile}
+            />
+
+            <Divider styleName="section-header">
+              <Caption>OPENINGS</Caption>
+            </Divider>
+            <RichMedia
+              body={article.openings}
+            />
+
+            <Divider styleName="section-header">
+              <Caption>COMPANY DESCRIPTION</Caption>
+            </Divider>
             <RichMedia
               body={article.body}
               attachments={article.attachments}
             />
-            <View styleName="solid">
-              <Title styleName="text-centric md-gutter-bottom">INDUSTRY</Title>
-              <Text>
-                {article.industry}
-              </Text>
-            </View>
-            <View styleName="solid">
-              <Title styleName="text-centric md-gutter-bottom">STUDENT PROFILE</Title>
-              <Text>
-                {article.studentProfile}
-              </Text>
-            </View>
-            <View styleName="solid">
-              <Title styleName="text-centric md-gutter-bottom">OPENINGS</Title>
-              <Text>
-                {article.openings}
-              </Text>
-            </View>
+
             {this.renderWebsiteButton(article)}
             {this.renderUpNext()}
           </View>
@@ -127,7 +133,7 @@ class ArticleMediumDetailsScreen extends React.Component {
 
     if(article.webUrl) {
       return(
-        <Button onPress={() => Linking.openURL(article.webUrl)}>
+        <Button onPress={() => openURL(article.webUrl)}>
           <Text>WEBSITE</Text>
         </Button>
       );
@@ -136,7 +142,8 @@ class ArticleMediumDetailsScreen extends React.Component {
 }
 
 export const mapStateToProps = (state, ownProps) => {
-
+  return {
+  };
 };
 
 export const mapDispatchToProps = {
@@ -144,5 +151,5 @@ export const mapDispatchToProps = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(
-  connectStyle(ext('ArticleMediumDetailsScreen'))(ArticleMediumDetailsScreen)
+  connectStyle(ext('ArticleMediumDetailsScreen'), {})(ArticleMediumDetailsScreen)
 );
