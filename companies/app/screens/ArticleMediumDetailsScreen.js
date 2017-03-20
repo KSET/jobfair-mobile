@@ -65,7 +65,7 @@ class ArticleMediumDetailsScreen extends React.Component {
     if (article.image) {
       return (
         <Image
-          styleName="medium-wide"
+          styleName="large-banner"
           source={{ uri: _.get(article, 'image.url') }}
           animationName="hero"
         />
