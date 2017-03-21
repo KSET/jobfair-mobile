@@ -1,5 +1,6 @@
 import React from 'react';
-import { formatDate, addToCalendar } from '../shared/Calendar';
+import { connect } from 'react-redux';
+
 import {
   ScrollView,
   Screen,
@@ -13,17 +14,24 @@ import {
   Button,
   Text,
   Divider,
+  TouchableOpacity,
+  Row,
 } from '@shoutem/ui';
 import { NavigationBar } from '@shoutem/ui/navigation';
+import { navigateTo } from '@shoutem/core/navigation';
+
+import { formatDate, addToCalendar } from '../shared/Calendar';
 
 export class DetailsScreen extends React.Component {
   static propTypes = {
     event: React.PropTypes.object.isRequired,
+    navigateTo: React.PropTypes.func,
   };
 
   constructor(props, context) {
     super(props, context);
     this.addToCalendar = this.addToCalendar.bind(this);
+    this.openCompanyPress = this.openCompanyPress.bind(this);
   }
 
   resolveNavBarProps(options = {}) {
@@ -43,6 +51,18 @@ export class DetailsScreen extends React.Component {
 
   addToCalendar() {
     addToCalendar(this.props.event);
+  }
+
+  openCompanyPress() {
+    const company = this.props.event.relatedLink;
+
+    this.props.navigateTo({
+      screen: 'morrigan.companies.ArticleMediumDetailsScreen',
+      title: company.title,
+      props: {
+        article: company,
+      },
+    });
   }
 
   renderHeadlineDetails(event, darkened = true) {
@@ -71,17 +91,44 @@ export class DetailsScreen extends React.Component {
     );
   }
 
-  renderInformation(event) {
+  renderDescription(event) {
     return event.description ? (
       <View styleName="solid">
         <Divider styleName="section-header">
-          <Caption>INFORMATION</Caption>
+          <Caption>DESCRIPTION</Caption>
         </Divider>
         <RichMedia
           body={event.description}
           attachments={event.attachments}
         />
       </View>
+    ) : null;
+  }
+
+  renderLecturer(event) {
+    return event.lecturer ? (
+      <View styleName="solid">
+        <Divider styleName="section-header">
+          <Caption>LECTURER</Caption>
+        </Divider>
+        <View styleName="md-gutter">
+          <Text>{event.lecturer}</Text>
+        </View>
+      </View>
+    ) : null;
+  }
+
+  renderCompanyLink(company) {
+    return company ? (
+      <TouchableOpacity onPress={this.openCompanyPress}>
+        <Row styleName="small">
+          <Icon name="users" />
+          <View styleName="vertical">
+            <Subtitle>Read more about {company.title}</Subtitle>
+          </View>
+          <Icon styleName="disclosure" name="right-arrow" />
+        </Row>
+      </TouchableOpacity>
     ) : null;
   }
 
@@ -94,7 +141,9 @@ export class DetailsScreen extends React.Component {
         <NavigationBar {...this.resolveNavBarProps()} />
         <ScrollView>
           {this.renderHeader(event)}
-          {this.renderInformation(event)}
+          {this.renderDescription(event)}
+          {this.renderLecturer(event)}
+          {this.renderCompanyLink(event.relatedLink)}
         </ScrollView>
       </Screen>
     );
@@ -104,3 +153,4 @@ export class DetailsScreen extends React.Component {
     return this.renderScreen(true);
   }
 }
+

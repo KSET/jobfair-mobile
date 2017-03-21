@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
+import { connect } from 'react-redux';
 
 import {
   Image,
@@ -7,9 +8,13 @@ import {
   Tile,
 } from '@shoutem/ui';
 import { connectStyle } from '@shoutem/theme';
+import { navigateTo } from '@shoutem/core/navigation';
+
+import { CmsListScreen } from 'shoutem.cms';
 
 import { ext } from '../const';
 import { DetailsScreen } from './DetailsScreen';
+import EventImage from '../components/EventImage';
 
 class DetailsScreenWithMediumPhoto extends DetailsScreen {
   renderWithoutPhoto(event) {
@@ -21,16 +26,13 @@ class DetailsScreenWithMediumPhoto extends DetailsScreen {
   }
 
   renderHeader(event) {
-    if (!_.has(event, 'image.url')) {
+    if (!_.has(event, 'relatedLink.image.url')) {
       return this.renderWithoutPhoto(event);
     }
 
     return (
       <View>
-        <Image
-          styleName="large-wide"
-          source={{ uri: _.get(event, 'image.url') }}
-        />
+        <EventImage styleName="large-wide" event={event} />
         <Tile styleName="text-centric">
           {this.renderHeadlineDetails(event)}
         </Tile>
@@ -56,7 +58,7 @@ class DetailsScreenWithMediumPhoto extends DetailsScreen {
   renderScreen() {
     const { event } = this.props;
 
-    if (!_.has(event, 'image.url')) {
+    if (!_.has(event, 'relatedLink.image.url')) {
       // Do not render in full screen, this layout have NavBar
       return super.renderScreen(false);
     }
@@ -64,5 +66,10 @@ class DetailsScreenWithMediumPhoto extends DetailsScreen {
     return super.renderScreen(true);
   }
 }
+export const mapDispatchToProps = CmsListScreen.createMapDispatchToProps({
+  navigateTo,
+});
 
-export default connectStyle(ext(DetailsScreenWithMediumPhoto.name))(DetailsScreenWithMediumPhoto);
+export default connect(undefined, mapDispatchToProps)(
+  connectStyle(ext(DetailsScreenWithMediumPhoto.name))(DetailsScreenWithMediumPhoto),
+);
