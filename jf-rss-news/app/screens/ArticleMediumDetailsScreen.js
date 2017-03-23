@@ -88,7 +88,6 @@ class ArticleMediumDetailsScreen extends React.Component {
               <Title>{article.title.toUpperCase()}</Title>
 
               <View styleName="horizontal md-gutter-top">
-                <Caption numberOfLines={1}>{article.newsAuthor}</Caption>
                 { dateFormat }
               </View>
             </Tile>

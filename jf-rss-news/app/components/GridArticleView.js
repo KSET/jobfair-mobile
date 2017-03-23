@@ -45,7 +45,6 @@ export default class GridArticleView extends React.Component {
           <View styleName="content">
             <Subtitle numberOfLines={3}>{article.title}</Subtitle>
             <View styleName="horizontal">
-              <Caption styleName="collapsible" numberOfLines={1}>{article.author}</Caption>
               { dateFormat }
             </View>
           </View>

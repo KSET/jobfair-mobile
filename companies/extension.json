@@ -1,6 +1,6 @@
 {
   "name": "companies",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "title": "Companies",
   "description": "Show list of companies",
   "platform": "1.0.*",

@@ -102,7 +102,6 @@ class ArticleDetailsScreen extends React.Component {
             <Tile animationName="hero">
               <Title styleName="centered">{article.title.toUpperCase()}</Title>
               <View styleName="horizontal collapsed" virtual>
-                <Caption numberOfLines={1} styleName="collapsible">{article.author}</Caption>
                 { dateFormat }
               </View>
               <Icon name="down-arrow" styleName="scroll-indicator" />
