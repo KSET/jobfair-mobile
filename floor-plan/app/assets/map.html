@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="axZmCustom.css" type="text/css" rel="stylesheet" />
+</head>
+<body id="container">
+
+<div>
+    <img id="image-map" src="./test-map.png" alt="" usemap="#Map"/>
+</div>
+    <map name="Map" id="Map">
+        <div class="zoomtarget" style="display: block; width: 100px; height: 100px;">
+            <area alt="" title="" shape="rect" coords="121,171,160,191"/>
+        </div>
+        <div class="zoomtarget" style="display: block">
+            <area alt="" title="" shape="rect" coords="647,173,707,202"/>
+        </div>
+    </map>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.rwdImageMaps.min.js"></script>
+<script type="text/javascript" src="jquery.axZm.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(e) {
+        $('img[usemap]').rwdImageMaps();
+    });
+</script>
+<script>
+    $('area').on('click', function(e) {
+        $("#image-map").animate({
+            zoom: '200%',
+            top: "600px",
+            left: "600px"
+        }, "slow");
+    });
+
+    $('#container').dblclick(function(){
+        $("#image-map").animate({
+            zoom: '100%'
+        }, "slow");
+    });
+</script>
+</body>
+</html>
