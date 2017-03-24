@@ -42,11 +42,6 @@
       "format": "html",
       "title": "Body"
     },
-    "summary": {
-      "type": "string",
-      "format": "multi-line",
-      "title": "Summary"
-    },
     "image": {
       "type": "object",
       "format": "attachment",
