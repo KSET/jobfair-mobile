@@ -2041,10 +2041,10 @@ export default (variables = {}) => ({
       },
     },
     item: {
-      backgroundColor: variables.mainNavItemBackground,
+      // backgroundColor: variables.mainNavItemBackground,
     },
     icon: {
-      tintColor: variables.mainNavItemColor,
+      // tintColor: variables.mainNavItemColor,
     },
     text: {
       color: variables.mainNavItemColor,
@@ -2070,8 +2070,8 @@ export default (variables = {}) => ({
     },
     '.large-icon': {
       icon: {
-        width: 48,
-        height: 48,
+        width: 100,
+        height: 100,
       },
     },
 
@@ -2080,11 +2080,11 @@ export default (variables = {}) => ({
     },
 
     item: {
-      backgroundColor: variables.subNavItemBackground,
+      //backgroundColor: variables.subNavItemBackground,
     },
 
     icon: {
-      tintColor: variables.subNavItemColor,
+      //tintColor: variables.subNavItemColor,
     },
 
     text: {
@@ -2104,7 +2104,7 @@ export default (variables = {}) => ({
       },
     },
   },
-  'shoutem.navigation.TabBar': {
+  'morrigan.navigation.TabBar': {
     screen: {
       // TabBar container
       'shoutem.ui.View': {
@@ -2119,7 +2119,7 @@ export default (variables = {}) => ({
       paddingBottom: 60, // TabBar height
     },
   },
-  'shoutem.navigation.TabBarItem': {
+  'morrigan.navigation.TabBarItem': {
     [INCLUDE]: ['mainNavigation'],
     '.icon-and-text': {
       icon: {
@@ -2173,7 +2173,7 @@ export default (variables = {}) => ({
       margin: 0,
     },
   },
-  'shoutem.navigation.Drawer': {
+  'morrigan.navigation.Drawer': {
     menu: {
       // container
       paddingTop: NAVIGATION_BAR_HEIGHT,
@@ -2197,7 +2197,7 @@ export default (variables = {}) => ({
     // Width of visible content when menu is opened
     visibleContentWidth: 54,
   },
-  'shoutem.navigation.DrawerItem': {
+  'morrigan.navigation.DrawerItem': {
     [INCLUDE]: ['mainNavigation'],
     item: {
       height: 64,
@@ -2227,7 +2227,7 @@ export default (variables = {}) => ({
       fontSize: 15,
     },
   },
-  'shoutem.navigation.IconGrid': {
+  'morrigan.navigation.IconGrid': {
     [INCLUDE]: ['subNavigation'],
     '.text-hidden': {
       item: {
@@ -2251,6 +2251,7 @@ export default (variables = {}) => ({
       '.center-alignment': {
         // If Grid is is aligned to right (gridAlignment = topCenter || middleCenter || bottomCenter)
         // Same as left-alignment
+        justifyContent: 'center',
       },
       '.right-alignment': {
         // If Grid is is aligned to right (gridAlignment = topRight || middleRight || bottomRight)
@@ -2264,7 +2265,7 @@ export default (variables = {}) => ({
       justifyContent: 'center',
       alignItems: 'center',
       flexDirection: 'column',
-      width: 72, // Used to calculate row width
+      width: 122, // Used to calculate row width
       marginLeft: GRID_ITEM_HORIZONTAL_GUTTER, // Used to calculate row width
       marginBottom: 0,
       height: null, // to stretch item height by its content
@@ -2272,21 +2273,21 @@ export default (variables = {}) => ({
     iconContainer: {
       justifyContent: 'center',
       alignItems: 'center',
-      width: 64,
-      height: 64,
+      width: 130,
+      height: 128,
     },
     icon: {
     },
     text: {
-      fontSize: 10,
+      fontSize: 12,
       marginBottom: 12,
       height: 12,
       lineHeight: 12,
-      maxWidth: 72,
+      maxWidth: 76,
       flex: -1,
     },
   },
-  'shoutem.navigation.List': {
+  'morrigan.navigation.List': {
     [INCLUDE]: ['subNavigation'],
     '.main-navigation': {
       item: {
@@ -2355,7 +2356,7 @@ export default (variables = {}) => ({
     },
   },
 
-  'shoutem.navigation.CardList': {
+  'morrigan.navigation.CardList': {
     page: {
       // Page padding bottom is defined by item marginBottom
       '.small-gutter': {

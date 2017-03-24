@@ -1,7 +1,8 @@
 import React, { PropTypes, Component } from 'react';
-import { IconLabel } from '@shoutem/se-ui-kit';
+import { IconLabel } from '@shoutem/react-web-ui';
 import { ImageUploader, S3Uploader } from '@shoutem/web-core';
-import { url, appId, awsDefaultBucket } from 'environment';
+import { url, appId } from 'environment';
+import './style.scss';
 
 function getLabelIcon(shortcutType) {
   switch (shortcutType) {
@@ -12,16 +13,17 @@ function getLabelIcon(shortcutType) {
   }
 }
 
-export default class ShortcutBackgroundListItem extends Component {
+export default class ShortcutBackgroundRow extends Component {
   constructor(props) {
     super(props);
+
     this.handleNormalIconUploaded = this.handleNormalIconUploaded.bind(this);
+    this.handleIconDeleted = this.handleIconDeleted.bind(this);
 
     this.uploader = new S3Uploader({
       appId,
       basePolicyServerPath: url.apps,
       folderName: 'images',
-      awsBucket: awsDefaultBucket,
     });
   }
 
@@ -30,14 +32,19 @@ export default class ShortcutBackgroundListItem extends Component {
     onIconSelected(shortcutId, { normalIconUrl: iconUrl });
   }
 
+  handleIconDeleted() {
+    const { shortcutId, onIconSelected } = this.props;
+    onIconSelected(shortcutId, { normalIconUrl: null });
+  }
+
   render() {
     const { title, shortcutType, normalIconUrl } = this.props;
     const iconName = getLabelIcon(shortcutType);
 
     return (
-      <tr>
+      <tr className="shortcut-background-row">
         <td>
-          <IconLabel iconName={iconName} size="24px" className="navigation__table-label">
+          <IconLabel iconName={iconName} size="24px" className="shortcuts-table__label">
             {title}
           </IconLabel>
         </td>
@@ -46,7 +53,8 @@ export default class ShortcutBackgroundListItem extends Component {
             uploader={this.uploader}
             onUploadSuccess={this.handleNormalIconUploaded}
             preview={normalIconUrl}
-            canBeDeleted={false}
+            previewSize="medium"
+            onDeleteSuccess={this.handleIconDeleted}
           />
         </td>
       </tr>
@@ -54,7 +62,7 @@ export default class ShortcutBackgroundListItem extends Component {
   }
 }
 
-ShortcutBackgroundListItem.propTypes = {
+ShortcutBackgroundRow.propTypes = {
   shortcutId: PropTypes.string,
   title: PropTypes.string,
   shortcutType: PropTypes.string,

@@ -1,9 +1,10 @@
 import React, { PropTypes, Component } from 'react';
 import { ControlLabel, Row, Col, FormGroup } from 'react-bootstrap';
 import { ImageUploader, S3Uploader } from '@shoutem/web-core';
-import { url, appId, awsDefaultBucket } from 'environment';
-import form from './form';
-import DropdownWrapper from './DropdownWrapper';
+import { url, appId } from 'environment';
+import form from '../form';
+import DropdownWrapper from '../DropdownWrapper';
+import './style.scss';
 
 const configuration = {
   default: {
@@ -18,14 +19,15 @@ const configuration = {
 export class BackgroundSettings extends Component {
   constructor(props) {
     super(props);
+
     this.saveForm = this.saveForm.bind(this);
+    this.handleBackgroundDeleteSuccess = this.handleBackgroundDeleteSuccess.bind(this);
 
     props.onFieldChange(this.saveForm);
     this.uploader = new S3Uploader({
       appId,
       basePolicyServerPath: url.apps,
       folderName: 'images',
-      awsBucket: awsDefaultBucket,
     });
   }
 
@@ -34,31 +36,39 @@ export class BackgroundSettings extends Component {
     this.props.onSettingsChanged(newSettings);
   }
 
+  handleBackgroundDeleteSuccess() {
+    const { onSettingsChanged } = this.props;
+    const newSettings = {
+      backgroundImage: null,
+    };
+    onSettingsChanged(newSettings);
+  }
+
   render() {
     const { parallaxEffect, backgroundImage } = this.props.fields;
     const minWidth = 750;
     const minHeight = 1136;
 
     return (
-      <div>
+      <div className="background-settings">
         <h3>Background settings</h3>
         <form>
           <FormGroup>
             <Row>
-              <Col md={6}>
+              <Col md={7}>
                 <ControlLabel>{`Screen background (min ${minWidth}x${minHeight}px)`}</ControlLabel>
                 <ImageUploader
-                  previewSize="large"
+                  previewSize="custom"
                   onUploadSuccess={backgroundImage.onChange}
                   preview={backgroundImage.value}
                   minWidth={minWidth}
                   minHeight={minHeight}
                   icon="add-photo"
                   uploader={this.uploader}
-                  canBeDeleted={false}
+                  onDeleteSuccess={this.handleBackgroundDeleteSuccess}
                 />
               </Col>
-              <Col md={6}>
+              <Col md={5}>
                 <ControlLabel>Parallax effect</ControlLabel>
                 <DropdownWrapper
                   valuesMap={configuration.parallaxEffect}

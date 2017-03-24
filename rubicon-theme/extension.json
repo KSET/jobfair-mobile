@@ -1,7 +1,7 @@
 {
   "name": "rubicon-theme",
   "version": "0.1.44",
-  "type": "system",
+  "type": "custom",
   "title": "Rubicon Prime",
   "description": "Rubicon theme",
   "platform": "1.0.*",

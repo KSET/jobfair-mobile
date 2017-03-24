@@ -1,11 +1,15 @@
 {
   "name": "navigation",
-  "version": "0.5.4",
-  "type": "system",
-  "title": "Navigation",
-  "description": "Application Navigation",
+  "version": "0.5.25",
+  "type": "custom",
+  "title": "Main Navigation",
+  "description": "App-level navigation",
   "platform": "1.0.*",
   "categories": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shoutem/extensions"
+  },
   "icon": "server/assets/add-main-navigation-image.png",
   "shortcuts": [{
     "name": "icons",
@@ -20,17 +24,18 @@
         "title": "Layout"
       },
       {
-        "page": "@.IconsPage",
+        "page": "shoutem.navigation.IconsPage",
         "title": "Icons"
       }
     ]
   }],
   "screens": [{
-    "name":"TabBar",
-    "title": "TabBar",
+    "name": "TabBar",
+    "title": "Tab bar",
     "image": "./server/assets/screens/tabbar.png",
+    "groupTitle": "Choose navigation",
     "settingsPage": {
-      "page": "@.TabBar"
+      "page": "shoutem.navigation.TabBar"
     },
     "settings": {
       "startingScreen": null,
@@ -38,12 +43,12 @@
       "showText": true
     }
   }, {
-    "name":"Drawer",
+    "name": "Drawer",
     "title": "Drawer",
     "image": "./server/assets/screens/drawer.png",
     "extends": "@.TabBar",
     "settingsPage": {
-      "page": "@.Drawer"
+      "page": "shoutem.navigation.Drawer"
     },
     "settings": {
       "startingScreen": null,
@@ -51,12 +56,12 @@
       "showText": true
     }
   }, {
-    "name":"IconGrid",
+    "name": "IconGrid",
     "title": "Icon grid",
     "image": "./server/assets/screens/icon.png",
     "extends": "@.TabBar",
     "settingsPage": {
-      "page": "@.IconGrid"
+      "page": "shoutem.navigation.IconGrid"
     },
     "settings": {
       "iconSize": "medium",
@@ -70,12 +75,12 @@
       "backgroundHeight": 48
     }
   }, {
-    "name":"List",
+    "name": "List",
     "title": "List",
     "image": "./server/assets/screens/list.png",
     "extends": "@.TabBar",
     "settingsPage": {
-      "page": "@.List"
+      "page": "shoutem.navigation.List"
     },
     "settings": {
       "backgroundImage": "",
@@ -88,35 +93,10 @@
       "itemHeight": 48
     }
   }, {
-    "name":"None",
+    "name": "None",
     "title": "None",
     "image": "./server/assets/screens/none.png",
     "extends": "@.TabBar",
     "settingsPage": {}
-  }],
-  "pages": [{
-    "name": "List",
-    "type": "html",
-    "path": "filename_ending_in_js_indicating_component.js"
-  }, {
-    "name": "CardList",
-    "type": "html",
-    "path": "filename_ending_in_js_indicating_component.js"
-  }, {
-    "name": "IconGrid",
-    "type": "html",
-    "path": "filename_ending_in_js_indicating_component.js"
-  }, {
-    "name": "Drawer",
-    "type": "html",
-    "path": "filename_ending_in_js_indicating_component.js"
-  }, {
-    "name": "TabBar",
-    "type": "html",
-    "path": "filename_ending_in_js_indicating_component.js"
-  }, {
-    "name": "IconsPage",
-    "type": "html",
-    "path": "filename_ending_in_js_indicating_component.js"
   }]
 }

@@ -1,12 +1,11 @@
 import React, { PropTypes, Component } from 'react';
-import { IconLabel } from '@shoutem/se-ui-kit';
+import { IconLabel } from '@shoutem/react-web-ui';
 import { IconPicker, S3Uploader } from '@shoutem/web-core';
 import {
   url,
   appId,
   getActiveTheme,
   getDefaultTheme,
-  awsDefaultBucket,
 } from 'environment';
 
 function getLabelIcon(shortcutType) {
@@ -18,7 +17,7 @@ function getLabelIcon(shortcutType) {
   }
 }
 
-export default class ShortcutIconListItem extends Component {
+export default class ShortcutIconRow extends Component {
   constructor(props) {
     super(props);
     this.handleIconSelected = this.handleIconSelected.bind(this);
@@ -27,7 +26,6 @@ export default class ShortcutIconListItem extends Component {
       appId,
       basePolicyServerPath: url.apps,
       folderName: 'icons',
-      awsBucket: awsDefaultBucket,
     });
   }
 
@@ -45,7 +43,7 @@ export default class ShortcutIconListItem extends Component {
     return (
       <tr>
         <td>
-          <IconLabel iconName={iconName} size="24px" className="navigation__table-label">
+          <IconLabel iconName={iconName} size="24px" className="shortcuts-table__label">
             {title}
           </IconLabel>
         </td>
@@ -64,7 +62,7 @@ export default class ShortcutIconListItem extends Component {
   }
 }
 
-ShortcutIconListItem.propTypes = {
+ShortcutIconRow.propTypes = {
   shortcutId: PropTypes.string,
   title: PropTypes.string,
   shortcutType: PropTypes.string,

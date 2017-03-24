@@ -41,7 +41,7 @@ export class NavigationBaseItem extends React.Component {
     const source = shortcut.icon ? resolveIconSource(shortcut.icon) : missingIconSource;
 
     return {
-      style: 'medium-square',
+      style: style.icon,
       source,
     };
   }

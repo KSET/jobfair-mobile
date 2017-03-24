@@ -1,15 +1,17 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import _ from 'lodash';
 import { Row, Col, FormGroup } from 'react-bootstrap';
-import { Switch } from '@shoutem/se-ui-kit';
+import { Switch } from '@shoutem/react-web-ui';
 import form from '../common/form';
-import ShortcutsList from '../../components/ShortcutsList';
-import ShortcutBackgroundListItem from '../../components/ShortcutBackgroundListItem';
+import ShortcutsTable from '../../components/shortcuts-table';
+import ShortcutBackgroundRow from '../../components/shortcut-background-row';
 
-export class IconsBackgroundSettings extends React.Component {
+export class IconsBackgroundSettings extends Component {
   constructor(props) {
     super(props);
+
     this.saveForm = this.saveForm.bind(this);
+    this.renderShortcutRow = this.renderShortcutRow.bind(this);
 
     props.onFieldChange(this.saveForm);
   }
@@ -19,8 +21,21 @@ export class IconsBackgroundSettings extends React.Component {
     this.props.onSettingsChanged(newSettings);
   }
 
+  renderShortcutRow(shortcut) {
+    const { onIconChanged, normalIconUrl } = this.props;
+    return (
+      <ShortcutBackgroundRow
+        title={shortcut.title}
+        shortcutType={shortcut.shortcutType}
+        normalIconUrl={_.get(shortcut, normalIconUrl)}
+        shortcutId={shortcut.id}
+        onIconSelected={onIconChanged}
+      />
+    );
+  }
+
   render() {
-    const { fields, shortcuts, onIconChanged, normalIconUrl } = this.props;
+    const { fields, shortcuts } = this.props;
     const { backgroundImagesEnabled } = fields;
 
     return (
@@ -40,19 +55,10 @@ export class IconsBackgroundSettings extends React.Component {
             <Row>
               <Col md={12}>
                 <FormGroup>
-                  <ShortcutsList
-                    className="shortcut-icon__double"
+                  <ShortcutsTable
                     shortcuts={shortcuts}
                     headerTitles={['Icon backgrounds', 'Normal']}
-                    getListItem={(shortcut) => (
-                      <ShortcutBackgroundListItem
-                        title={shortcut.title}
-                        shortcutType={shortcut.shortcutType}
-                        normalIconUrl={_.get(shortcut, normalIconUrl)}
-                        shortcutId={shortcut.id}
-                        onIconSelected={onIconChanged}
-                      />
-                    )}
+                    renderRow={this.renderShortcutRow}
                   />
                 </FormGroup>
               </Col>
@@ -68,6 +74,11 @@ IconsBackgroundSettings.propTypes = {
   settings: PropTypes.object.isRequired,
   onIconChanged: PropTypes.func.isRequired,
   onSettingsChanged: PropTypes.func.isRequired,
+  onFieldChange: PropTypes.func,
+  form: PropTypes.string,
+  fields: PropTypes.arrayOf(PropTypes.string),
+  shortcuts: PropTypes.array,
+  normalIconUrl: PropTypes.string,
 };
 
 export default form((props) => {
