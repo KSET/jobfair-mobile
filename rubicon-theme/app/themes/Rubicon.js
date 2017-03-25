@@ -2283,7 +2283,7 @@ export default (variables = {}) => ({
       marginBottom: 12,
       height: 12,
       lineHeight: 12,
-      maxWidth: 76,
+      maxWidth: 100,
       flex: -1,
     },
   },
