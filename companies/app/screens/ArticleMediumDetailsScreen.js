@@ -9,6 +9,7 @@ import {
   Text,
   Divider,
   Image,
+  Icon,
   Tile,
   RichMedia,
   View,
@@ -116,9 +117,16 @@ class ArticleMediumDetailsScreen extends React.Component {
 
     if(article.webUrl) {
       return(
-        <Button onPress={() => openURL(article.webUrl)}>
+      <View styleName="horizontal flexible">
+        <Button styleName="full-width muted" onPress={() => openURL(article.webUrl)}>
+          <Icon name="web" />
           <Text>WEBSITE</Text>
         </Button>
+        <Button styleName="full-width muted">
+          <Icon name="address-full" />
+          <Text>BOOTH LOCATION</Text>
+        </Button>
+      </View>
       );
     }
   }
