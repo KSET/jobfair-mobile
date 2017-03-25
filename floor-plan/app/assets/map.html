@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        #footer {
+            position:fixed;
+            left:0px;
+            bottom:0px;
+            height: 10%;
+            min-height: 50px;
+            width:100%;
+            background-color: white;
+        }
+    </style>
 </head>
-<body id="container">
+<body>
 
-<div>
+<div id="container">
     <img id="image-map" src="./test-map.png" alt="" usemap="#Map"/>
 </div>
     <map name="Map" id="Map">
@@ -16,7 +27,12 @@
         </div>
     </map>
 
+<div id="footer" style="text-align: center; border-top: 3px solid black;">
+    <h1>B11 - FIVE</h1>
+</div>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script type="text/javascript" src="jquery.rwdImageMaps.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(e) {
@@ -25,18 +41,31 @@
 </script>
 <script>
     $('area').on('click', function(e) {
-        $("#image-map").animate({
-            zoom: '200%',
-            top: "600px",
-            left: "600px"
-        }, "slow");
+        clearPin();
+        putPin(e);
     });
 
-    $('#container').dblclick(function(){
-        $("#image-map").animate({
-            zoom: '100%'
-        }, "slow");
+    $('area').on('tap', function(e) {
+        clearPin();
+        putPin(e);
     });
+
+    function clearPin() {
+        $('#pin').remove();
+    }
+
+    function putPin(e) {
+        let offsetY = 48;
+        let offsetX = 24;
+        let coords = e.target.coords.split(',');
+        let x = (Number(coords[0]) + Number(coords[2])) / 2 + 7;
+        let y = (Number(coords[1]) + Number(coords[3])) / 2 + 5;
+        $('#container').append(`<img id="pin" src="./pin.png" style="width:auto;height:auto;position:absolute; left:${x - offsetX}px; top: ${y - offsetY}px;" />`);
+    }
+
+    function test() {
+        $('#container').append('<h1>Test</h1>');
+    }
 </script>
 </body>
 </html>
