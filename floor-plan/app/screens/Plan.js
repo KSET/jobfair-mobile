@@ -36,7 +36,7 @@ export default class Plan extends Component {
 
       return (
         <WebView
-            source={require('../assets/map.html')}
+            source={{uri:"http://php.marinpetrunic.com/jf/map.html"}}
             injectedJavaScript={javascript}
         />
     );
