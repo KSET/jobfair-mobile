@@ -6,10 +6,10 @@
     <style>
         #footer {
             position:fixed;
-            left:0px;
-            bottom:0px;
-            height: 10%;
-            min-height: 50px;
+            left:0;
+            bottom:0;
+            height: 20%;
+            min-height: 80px;
             width:100%;
             background-color: white;
         }
@@ -21,12 +21,8 @@
     <img id="image-map" src="./test-map.png" alt="" usemap="#Map"/>
 </div>
     <map name="Map" id="Map">
-        <div class="zoomtarget" style="display: block; width: 100px; height: 100px;">
-            <area alt="" title="" shape="rect" coords="121,171,160,191"/>
-        </div>
-        <div class="zoomtarget" style="display: block">
-            <area alt="" title="" shape="rect" coords="647,173,707,202"/>
-        </div>
+        <area alt="" data-id="B00" data-company="GOOGLE" title="" shape="rect" coords="121,171,160,191"/>
+        <area alt="" title="" data-id="B16" data-company="FIVE" shape="rect" coords="647,173,707,202"/>
     </map>
 
 <div id="footer" style="text-align: center; border-top: 3px solid black;">
