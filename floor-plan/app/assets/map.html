@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
     <style>
         #footer {
             position:fixed;
@@ -35,37 +37,9 @@
 <script type="text/javascript" src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script type="text/javascript" src="jquery.rwdImageMaps.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function(e) {
+    document.addEventListener("DOMContentLoaded", function(event) {
         $('img[usemap]').rwdImageMaps();
     });
-</script>
-<script>
-    $('area').on('click', function(e) {
-        clearPin();
-        putPin(e);
-    });
-
-    $('area').on('tap', function(e) {
-        clearPin();
-        putPin(e);
-    });
-
-    function clearPin() {
-        $('#pin').remove();
-    }
-
-    function putPin(e) {
-        let offsetY = 48;
-        let offsetX = 24;
-        let coords = e.target.coords.split(',');
-        let x = (Number(coords[0]) + Number(coords[2])) / 2 + 7;
-        let y = (Number(coords[1]) + Number(coords[3])) / 2 + 5;
-        $('#container').append(`<img id="pin" src="./pin.png" style="width:auto;height:auto;position:absolute; left:${x - offsetX}px; top: ${y - offsetY}px;" />`);
-    }
-
-    function test() {
-        $('#container').append('<h1>Test</h1>');
-    }
 </script>
 </body>
 </html>
