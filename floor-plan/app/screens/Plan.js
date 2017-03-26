@@ -8,7 +8,7 @@ export default class Plan extends Component {
   render() {
     return (
         <WebView
-            source={require('../assets/floor-plan.html')}
+            source={require('../assets/map.html')}
             style={{marginTop: 20}}
         />
     );

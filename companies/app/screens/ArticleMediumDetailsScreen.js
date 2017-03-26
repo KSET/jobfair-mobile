@@ -9,6 +9,7 @@ import {
   Text,
   Divider,
   Image,
+  Icon,
   Tile,
   RichMedia,
   View,
@@ -91,27 +92,9 @@ class ArticleMediumDetailsScreen extends React.Component {
               <View styleName="horizontal md-gutter-top"/>
             </Tile>
 
-            <Divider styleName="section-header">
-              <Caption>INDUSTRY</Caption>
-            </Divider>
-
-            <RichMedia
-              body={article.industry}
-            />
-
-            <Divider styleName="section-header">
-              <Caption>STUDENT PROFILE</Caption>
-            </Divider>
-            <RichMedia
-              body={article.studentProfile}
-            />
-
-            <Divider styleName="section-header">
-              <Caption>OPENINGS</Caption>
-            </Divider>
-            <RichMedia
-              body={article.openings}
-            />
+            {this.renderCompanyProp('INDUSTRY', article.industry)}
+            {this.renderCompanyProp('STUDENT PROFILE', article.studentProfile)}
+            {this.renderCompanyProp('OPENINGS', article.openings)}
 
             <Divider styleName="section-header">
               <Caption>COMPANY DESCRIPTION</Caption>
@@ -134,9 +117,31 @@ class ArticleMediumDetailsScreen extends React.Component {
 
     if(article.webUrl) {
       return(
-        <Button onPress={() => openURL(article.webUrl)}>
+      <View styleName="horizontal flexible">
+        <Button styleName="full-width muted" onPress={() => openURL(article.webUrl)}>
+          <Icon name="web" />
           <Text>WEBSITE</Text>
         </Button>
+        <Button styleName="full-width muted">
+          <Icon name="address-full" />
+          <Text>BOOTH LOCATION</Text>
+        </Button>
+      </View>
+      );
+    }
+  }
+
+  renderCompanyProp(propName, prop) {
+    if(prop) {
+      return (
+        <View>
+          <Divider styleName="section-header">
+            <Caption>{propName}</Caption>
+          </Divider>
+          <View styleName="md-gutter">
+            <Text>{prop}</Text>
+          </View>
+        </View>
       );
     }
   }

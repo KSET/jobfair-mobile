@@ -170,7 +170,7 @@ export class FolderBaseScreen extends React.Component {
   resolveNavBarProps() {
     const { shortcut: { title }, isRootScreen } = this.props;
     return {
-      styleName: isRootScreen ? 'none' : '',
+      styleName: isRootScreen ? 'clear' : 'clear',
       title,
     };
   }
@@ -181,7 +181,7 @@ export class FolderBaseScreen extends React.Component {
       // Main Navigation Screens does not have NavigationBar, so when Folder screen is Main
       // navigation screen (and has no NavigationBar) stretch screen.
       onLayout: this.layoutChanged,
-      styleName: isRootScreen ? 'full-screen' : '',
+      styleName: 'full-screen',
     };
   }
 
