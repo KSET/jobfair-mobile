@@ -29,7 +29,7 @@
     },
     "openings": {
       "type": "string",
-      "format": "multi-line",
+      "format": "html",
       "title": "Openings"
     },
     "featured": {
