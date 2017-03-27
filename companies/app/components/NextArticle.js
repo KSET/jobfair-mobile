@@ -38,7 +38,6 @@ export default class NextArticle extends React.Component {
         >
           <View styleName="fill-parent overlay vertical md-gutter space-between">
             <Caption styleName="bold bright">UP NEXT</Caption>
-            <Subtitle styleName="bright" numberOfLines={2}>{article.title}</Subtitle>
           </View>
         </Image>
       </TouchableOpacity>
