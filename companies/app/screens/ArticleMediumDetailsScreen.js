@@ -35,11 +35,10 @@ class ArticleMediumDetailsScreen extends React.Component {
   getNavBarProps() {
     const { article } = this.props;
     const styleName = article.image ? 'clear' : undefined;
-    const animationName = article.image ? 'solidify' : 'boxing';
+    const animationName = article.image ? 'none' : 'none';
 
     return {
       styleName,
-      animationName,
       share: {
         title: article.title,
         text: article.summary,
