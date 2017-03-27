@@ -42,6 +42,12 @@
       "format": "entity-reference",
       "title": "Company",
       "referencedSchema": "morrigan.companies.articles"
+    },
+    "location": {
+      "title": "Location",
+      "format": "single-line",
+      "type": "string",
+      "required": false
     }
   }
 }
