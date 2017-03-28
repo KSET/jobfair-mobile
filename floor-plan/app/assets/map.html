@@ -4,38 +4,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        #container {
+            overflow-y: scroll;
+            width: 100%;
+            padding-bottom: 80px; /* must be same height as the footer */
+        }
+
         #footer {
-            position:fixed;
-            left:0;
-            bottom:0;
-            height: 20%;
-            min-height: 80px;
-            width:100%;
+            position: relative;
+            margin-top: -80px; /* negative value of footer height */
+            height: 80px;
+            width: 100%;
+            text-align: center;
+            clear: both;
             background-color: white;
+        }
+
+        /* Opera Fix thanks to Maleika (Kohoutec) */
+        body:before {
+            content: "";
+            height: 100%;
+            float: left;
+            width: 0;
+            margin-top: -32767px;/* thank you Erik J - negate effect of float*/
         }
     </style>
 </head>
 <body>
 
 <div id="container">
-    <img id="image-map" src="./test-map.png" alt="" usemap="#Map"/>
-</div>
+    <img id="image-map" src="./test-map.png" alt="" style="overflow: hidden" usemap="#Map"/>
     <map name="Map" id="Map">
-        <area alt="" data-id="B00" data-company="GOOGLE" title="" shape="rect" coords="121,171,160,191"/>
-        <area alt="" title="" data-id="B16" data-company="FIVE" shape="rect" coords="647,173,707,202"/>
+        <area alt="" id="B00" data-company="GOOGLE" title="" shape="rect" coords="121,171,160,191"/>
+        <area alt="" id="B16" data-company="FIVE" shape="rect" coords="647,173,707,202"/>
     </map>
 
-<div id="footer" style="text-align: center; border-top: 3px solid black;">
-    <h1>B11 - FIVE</h1>
-</div>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-<script type="text/javascript" src="jquery.rwdImageMaps.min.js"></script>
-<script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function(event) {
-        $('img[usemap]').rwdImageMaps();
-    });
-</script>
+    <div id="footer" style="text-align: center; border-top: 3px solid black;">
+        <h1>B11 - FIVE</h1>
+    </div>
 </body>
 </html>

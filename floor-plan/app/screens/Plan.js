@@ -12,17 +12,13 @@ export default class Plan extends Component {
   render() {
     const javascript = `
     
-    window.onload = function() {
-        var location = window.location.hash.substr(1).toUpperCase();
-        var target = document.querySelectorAll('[data-id="'+location+'"]')[0];
-        if(target) {
-            toggleCompany(target);
-        }
+    function load() {
+        window.alert('on load');
     };
 
     window.onhashchange = function() {
         var location = window.location.hash.substr(1).toUpperCase();
-        var target = document.querySelectorAll('[data-id="'+location+'"]')[0];
+        var target = document.getElementById('location');
         if(target) {
             toggleCompany(target);
         }
@@ -43,12 +39,20 @@ export default class Plan extends Component {
         }
         putPin(target);
         console.log(target.getAttribute('data-id'));
-        document.getElementById('footer').innerHTML = '<h1>' + target.getAttribute('data-id') + ' - ' + target.getAttribute('data-company') + '</h1>';
-        document.getElementById('pin').scrollIntoView();
+        document.getElementById('footer').innerHTML = '<h1>' + target.getAttribute('id') + ' - ' + target.getAttribute('data-company') + '</h1>';
     }
     function resolve(e) {
         toggleCompany(e.target);
     }
+    
+    window.onLoad = load;
+    
+    if(window.addEventListener){
+        window.addEventListener('DOMContentLoaded', load)
+    }else{
+        window.attachEvent('DOMContentLoaded', load)
+    }
+
 
     var areas = document.querySelectorAll('area');
     for (var i = 0; i < areas.length; i++) {

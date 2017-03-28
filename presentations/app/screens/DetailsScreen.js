@@ -91,6 +91,28 @@ export class DetailsScreen extends React.Component {
     );
   }
 
+  renderLocation(event) {
+    return event.location ? (
+      <View styleName="solid">
+        <Divider styleName="section-header">
+          <Caption>LOCATION</Caption>
+        </Divider>
+        <View styleName="md-gutter">
+          <Text>{event.location}</Text>
+        </View>
+      </View>
+    ) : (
+      <View styleName="solid">
+        <Divider styleName="section-header">
+          <Caption>LOCATION</Caption>
+        </Divider>
+        <View styleName="md-gutter">
+          <Text>SIVA VIJEĆNICA</Text>
+        </View>
+      </View>
+    );
+  }
+
   renderDescription(event) {
     return event.description ? (
       <View styleName="solid">
@@ -141,6 +163,7 @@ export class DetailsScreen extends React.Component {
         <NavigationBar {...this.resolveNavBarProps()} />
         <ScrollView>
           {this.renderHeader(event)}
+          {this.renderLocation(event)}
           {this.renderDescription(event)}
           {this.renderLecturer(event)}
           {this.renderCompanyLink(event.relatedLink)}

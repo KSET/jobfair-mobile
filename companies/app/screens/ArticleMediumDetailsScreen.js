@@ -35,11 +35,10 @@ class ArticleMediumDetailsScreen extends React.Component {
   getNavBarProps() {
     const { article } = this.props;
     const styleName = article.image ? 'clear' : undefined;
-    const animationName = article.image ? 'solidify' : 'boxing';
+    const animationName = article.image ? 'none' : 'none';
 
     return {
       styleName,
-      animationName,
       share: {
         title: article.title,
         text: article.summary,
@@ -94,15 +93,8 @@ class ArticleMediumDetailsScreen extends React.Component {
 
             {this.renderCompanyProp('INDUSTRY', article.industry)}
             {this.renderCompanyProp('STUDENT PROFILE', article.studentProfile)}
-            {this.renderCompanyProp('OPENINGS', article.openings)}
-
-            <Divider styleName="section-header">
-              <Caption>COMPANY DESCRIPTION</Caption>
-            </Divider>
-            <RichMedia
-              body={article.body}
-              attachments={article.attachments}
-            />
+            {this.renderRichCompanyProp('OPENINGS', article.openings)}
+            {this.renderRichCompanyProp('COMPANY DESCRIPTION', article.body)}
 
             {this.renderWebsiteButton(article)}
             {this.renderUpNext()}
@@ -141,6 +133,21 @@ class ArticleMediumDetailsScreen extends React.Component {
           <View styleName="md-gutter">
             <Text>{prop}</Text>
           </View>
+        </View>
+      );
+    }
+  }
+
+  renderRichCompanyProp(propName, prop) {
+    if(prop) {
+      return (
+        <View>
+          <Divider styleName="section-header">
+            <Caption>{propName}</Caption>
+          </Divider>
+          <RichMedia
+            body={prop}
+          />
         </View>
       );
     }

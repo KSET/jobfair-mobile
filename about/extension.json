@@ -1,0 +1,43 @@
+{
+  "name": "about",
+  "version": "0.9.6",
+  "title": "About",
+  "description": "Show info about your app or your business",
+  "platform": "1.0.*",
+  "icon": "server/assets/add-about-image.png",
+  "categories": ["content"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shoutem/extensions"
+  },
+  "shortcuts": [{
+    "name": "openAbout",
+    "title": "About",
+    "icon":"theme://about.png",
+    "screen": "@.AboutScreen",
+    "adminPages": [{
+      "page": "shoutem.cms.CmsPage",
+      "title": "Content",
+      "parameters": {
+        "schema": "@.About"
+      }
+    }]
+  }],
+  "screens": [
+    {
+      "name": "AboutScreen",
+      "navigatesTo": [
+        "@.MapScreen"
+      ]
+    },
+    {
+      "name": "MapScreen"
+    }
+  ],
+  "dataSchemas": [
+    {
+      "name": "About",
+      "path": "server/data-schemas/About.json"
+    }
+  ]
+}

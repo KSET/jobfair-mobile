@@ -1016,7 +1016,7 @@ export default (variables = {}) => ({
     'shoutem.ui.Button': {
       [INCLUDE]: ['clearButton'],
       'shoutem.ui.Icon': {
-        color: variables.imageOverlayTextColor,
+        color: variables.navBarIconsColor,
       },
       'shoutem.ui.Text': {
         color: variables.imageOverlayTextColor,
