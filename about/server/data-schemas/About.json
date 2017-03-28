@@ -38,7 +38,7 @@
       "displayPriority": 6
     },
     "twitter": {
-      "format": "uri",
+      "format": "single-line",
       "title": "Twitter",
       "type": "string",
       "displayPriority": 7
@@ -50,13 +50,13 @@
       "displayPriority": 8
     },
     "linkedin": {
-      "format": "uri",
+      "format": "single-line",
       "title": "Linkedin",
       "type": "string",
       "displayPriority": 9
     },
     "facebook": {
-      "format": "uri",
+      "format": "single-line",
       "title": "Facebook",
       "type": "string",
       "displayPriority": 10

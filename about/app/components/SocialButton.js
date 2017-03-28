@@ -13,7 +13,7 @@ export default class SocialButton extends Component {
     title: PropTypes.string,
     icon: PropTypes.string.isRequired,
     openURL: PropTypes.func,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -23,22 +23,23 @@ export default class SocialButton extends Component {
   buttonPressHandle() {
     const { icon, openURL, url, title } = this.props;
 
-    if (icon === 'call' || icon === 'email') {
-      Linking.canOpenURL(url).then((supported) => {
-        if (supported) {
-          Linking.openURL(url);
-        } else {
+    Linking.canOpenURL(url).then((supported) => {
+      if (supported) {
+        Alert.alert('Info', url, [{ text: 'OK', onPress: () => {} }]);
+        Linking.openURL(url);
+      } else {
+        if (icon === 'call' || icon === 'email') {
           Alert.alert(
             'Error',
             'This action cannot be performed in Preview.',
             [{ text: 'OK', onPress: () => {} }],
           );
+        } else {
+          openURL(url, title);
         }
-      });
-      return;
-    }
 
-    openURL(url, title);
+      }
+    });
   }
 
   render() {
