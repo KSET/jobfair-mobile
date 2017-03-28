@@ -1138,6 +1138,7 @@ export default (variables = {}) => ({
         },
         'shoutem.ui.Text': {
           color: variables.navBarIconsColor,
+          maxWidth: 100,
         },
       },
     },
