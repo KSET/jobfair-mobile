@@ -16,7 +16,7 @@ import { NavigationBar } from '@shoutem/ui/navigation';
 
 import { MapView } from '@shoutem/ui-addons';
 
-export default class Map extends Component {
+export default class MapScreen extends Component {
   static propTypes = {
     marker: React.PropTypes.object,
     title: React.PropTypes.string,
@@ -33,7 +33,7 @@ export default class Map extends Component {
     const { marker } = this.props;
     const geoURL = `geo:${marker.latitude},${marker.longitude}`;
 
-    Linking.canOpenURL(geoURL).then(supported => {
+    Linking.canOpenURL(geoURL).then((supported) => {
       if (supported) {
         Linking.openURL(geoURL);
       } else {
@@ -58,6 +58,13 @@ export default class Map extends Component {
   render() {
     const { marker, title } = this.props;
 
+    const initialRegion = {
+      latitude: marker.latitude,
+      longitude: marker.longitude,
+      latitudeDelta: 0.03,
+      longitudeDelta: 0.03,
+    };
+
     return (
       <Screen styleName="full-screen">
         <NavigationBar
@@ -67,12 +74,7 @@ export default class Map extends Component {
         />
 
         <MapView
-          initialRegion={{
-            latitude: marker.latitude,
-            longitude: marker.longitude,
-            latitudeDelta: 0.03,
-            longitudeDelta: 0.03,
-          }}
+          initialRegion={initialRegion}
           markers={[marker]}
           selectedMarker={marker}
         />
