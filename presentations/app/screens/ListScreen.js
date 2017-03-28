@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { InteractionManager } from 'react-native';
 
 import { navigateTo } from '@shoutem/core/navigation';
 import { connectStyle } from '@shoutem/theme';
@@ -9,6 +10,7 @@ import {
   Button,
   Text,
 } from '@shoutem/ui';
+import { find } from '@shoutem/redux-io';
 
 import { CmsListScreen } from 'shoutem.cms';
 import { triggerEvent } from 'shoutem.analytics';
@@ -42,6 +44,11 @@ export class ListScreen extends CmsListScreen {
       schema: EVENTS_SCHEME,
       renderCategoriesInline: true,
     };
+  }
+
+  componentWillMount() {
+    super.componentWillMount();
+    //this.props.find('morrigan.companies.articles');
   }
 
   openDetailsScreen(event) {
@@ -118,6 +125,7 @@ export const mapStateToProps = CmsListScreen.createMapStateToProps(
 export const mapDispatchToProps = CmsListScreen.createMapDispatchToProps({
   navigateTo,
   triggerEvent,
+  find,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(
