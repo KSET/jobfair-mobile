@@ -37,36 +37,54 @@
       "type": "string",
       "displayPriority": 6
     },
-    "twitter": {
+    "twitterMobile": {
       "format": "single-line",
-      "title": "Twitter",
+      "title": "Twitter mobile url",
       "type": "string",
       "displayPriority": 7
+    },
+    "twitterWeb": {
+      "format": "single-line",
+      "title": "Twitter web url",
+      "type": "string",
+      "displayPriority": 8
     },
     "mail": {
       "format": "single-line",
       "title": "E-mail",
       "type": "string",
-      "displayPriority": 8
-    },
-    "linkedin": {
-      "format": "single-line",
-      "title": "Linkedin",
-      "type": "string",
       "displayPriority": 9
     },
-    "facebook": {
+    "linkedinMobile": {
       "format": "single-line",
-      "title": "Facebook",
+      "title": "Linkedin mobile url",
       "type": "string",
       "displayPriority": 10
+    },
+    "linkedinWeb": {
+      "format": "single-line",
+      "title": "Linkedin web url",
+      "type": "string",
+      "displayPriority": 11
+    },
+    "facebookMobile": {
+      "format": "single-line",
+      "title": "Facebook mobile url",
+      "type": "string",
+      "displayPriority": 12
+    },
+    "facebookWeb": {
+      "format": "single-line",
+      "title": "Facebook web url",
+      "type": "string",
+      "displayPriority": 13
     },
     "image": {
       "format": "attachment",
       "title": "Image",
       "type": "object",
       "referencedSchema": "shoutem.core.image-attachments",
-      "displayPriority": 11
+      "displayPriority": 14
     }
   },
   "titleProperty": "name",

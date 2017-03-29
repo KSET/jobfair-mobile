@@ -10,6 +10,7 @@ import {
 export default class SocialButton extends Component {
   static propTypes = {
     url: PropTypes.string,
+    alternativeUrl: PropTypes.string,
     title: PropTypes.string,
     icon: PropTypes.string.isRequired,
     openURL: PropTypes.func,
@@ -21,11 +22,10 @@ export default class SocialButton extends Component {
   }
 
   buttonPressHandle() {
-    const { icon, openURL, url, title } = this.props;
+    const { icon, openURL, url, title, alternativeUrl } = this.props;
 
     Linking.canOpenURL(url).then((supported) => {
-      if (supported) {
-        Alert.alert('Info', url, [{ text: 'OK', onPress: () => {} }]);
+      if (supported && icon !== 'web') {
         Linking.openURL(url);
       } else {
         if (icon === 'call' || icon === 'email') {
@@ -35,7 +35,11 @@ export default class SocialButton extends Component {
             [{ text: 'OK', onPress: () => {} }],
           );
         } else {
-          openURL(url, title);
+          if(alternativeUrl) {
+            openURL(alternativeUrl);
+          } else {
+            openURL(url);
+          }
         }
 
       }
@@ -43,7 +47,7 @@ export default class SocialButton extends Component {
   }
 
   render() {
-    const { icon, title, url } = this.props;
+    const { icon, title, url, alternativeUrl } = this.props;
 
     if (!url) {
       return null;

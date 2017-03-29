@@ -26,6 +26,8 @@ import {
   isInitialized,
 } from '@shoutem/redux-io';
 
+import { openURL } from 'shoutem.web-view';
+
 import { BaseAboutScreen, mapDispatchToProps, mapStateToProps } from './BaseAboutScreen';
 import SocialButton from '../components/SocialButton';
 import { ext } from '../const';
@@ -111,10 +113,15 @@ export class AboutScreen extends BaseAboutScreen {
     }
 
     return (
-      <RichMedia
-        body={profile.info}
-        attachments={profile.attachments}
-      />
+      <View>
+        <Divider styleName="section-header">
+          <Caption>DESCRIPTION</Caption>
+        </Divider>
+        <RichMedia
+          body={profile.info}
+          attachments={profile.attachments}
+        />
+      </View>
     );
   }
 
@@ -188,6 +195,10 @@ export class AboutScreen extends BaseAboutScreen {
     }
 
     return (
+    <View>
+      <Divider styleName="section-header">
+        <Caption>SOCIAL</Caption>
+      </Divider>
       <View styleName="horizontal h-center">
         <View styleName="horizontal h-start wrap">
           <SocialButton
@@ -203,7 +214,8 @@ export class AboutScreen extends BaseAboutScreen {
           />
           <SocialButton
             icon="tweet"
-            url={profile.twitter}
+            url={profile.twitterMobile}
+            alternativeUrl={profile.twitterWeb}
             title="Twitter"
             openURL={openURL}
           />
@@ -214,18 +226,21 @@ export class AboutScreen extends BaseAboutScreen {
           />
           <SocialButton
             icon="linkedin"
-            url={profile.linkedin}
+            url={profile.linkedinMobile}
+            alternativeUrl={profile.linkedinWeb}
             title="LinkedIn"
             openURL={openURL}
           />
           <SocialButton
             icon="facebook"
-            url={profile.facebook}
+            url={profile.facebookMobile}
+            alternativeUrl={profile.facebookWeb}
             title="Facebook"
             openURL={openURL}
           />
         </View>
       </View>
+    </View>
     );
   }
 
@@ -235,10 +250,10 @@ export class AboutScreen extends BaseAboutScreen {
         {this.renderImage(profile)}
         <View styleName="solid">
           {this.renderTitle(profile)}
-          {this.renderInfo(profile)}
-          {this.renderMap(profile)}
           {this.renderOpeningHours(profile)}
           {this.renderFooterButtons(profile)}
+          {this.renderInfo(profile)}
+          {this.renderMap(profile)}
         </View>
       </ScrollView>
     );
