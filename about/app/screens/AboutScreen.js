@@ -26,6 +26,8 @@ import {
   isInitialized,
 } from '@shoutem/redux-io';
 
+import { openURL } from 'shoutem.web-view';
+
 import { BaseAboutScreen, mapDispatchToProps, mapStateToProps } from './BaseAboutScreen';
 import SocialButton from '../components/SocialButton';
 import { ext } from '../const';
@@ -203,7 +205,8 @@ export class AboutScreen extends BaseAboutScreen {
           />
           <SocialButton
             icon="tweet"
-            url={profile.twitter}
+            url={profile.twitterMobile}
+            alternativeUrl={profile.twitterWeb}
             title="Twitter"
             openURL={openURL}
           />
@@ -214,13 +217,15 @@ export class AboutScreen extends BaseAboutScreen {
           />
           <SocialButton
             icon="linkedin"
-            url={profile.linkedin}
+            url={profile.linkedinMobile}
+            alternativeUrl={profile.linkedinWeb}
             title="LinkedIn"
             openURL={openURL}
           />
           <SocialButton
             icon="facebook"
-            url={profile.facebook}
+            url={profile.facebookMobile}
+            alternativeUrl={profile.facebookWeb}
             title="Facebook"
             openURL={openURL}
           />
