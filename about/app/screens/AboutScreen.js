@@ -113,10 +113,15 @@ export class AboutScreen extends BaseAboutScreen {
     }
 
     return (
-      <RichMedia
-        body={profile.info}
-        attachments={profile.attachments}
-      />
+      <View>
+        <Divider styleName="section-header">
+          <Caption>DESCRIPTION</Caption>
+        </Divider>
+        <RichMedia
+          body={profile.info}
+          attachments={profile.attachments}
+        />
+      </View>
     );
   }
 
@@ -190,6 +195,10 @@ export class AboutScreen extends BaseAboutScreen {
     }
 
     return (
+    <View>
+      <Divider styleName="section-header">
+        <Caption>SOCIAL</Caption>
+      </Divider>
       <View styleName="horizontal h-center">
         <View styleName="horizontal h-start wrap">
           <SocialButton
@@ -231,6 +240,7 @@ export class AboutScreen extends BaseAboutScreen {
           />
         </View>
       </View>
+    </View>
     );
   }
 
@@ -240,10 +250,10 @@ export class AboutScreen extends BaseAboutScreen {
         {this.renderImage(profile)}
         <View styleName="solid">
           {this.renderTitle(profile)}
-          {this.renderInfo(profile)}
-          {this.renderMap(profile)}
           {this.renderOpeningHours(profile)}
           {this.renderFooterButtons(profile)}
+          {this.renderInfo(profile)}
+          {this.renderMap(profile)}
         </View>
       </ScrollView>
     );
