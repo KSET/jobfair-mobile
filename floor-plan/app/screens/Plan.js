@@ -5,11 +5,17 @@ import React, {
 import { WebView } from 'react-native';
 
 export default class Plan extends Component {
+
+    static propTypes = {
+        location: React.PropTypes.string
+    };
+
   onNavigationStateChange(navState) {
       console.log(navState.title);
   }
 
   render() {
+    const { location } = this.props;
     const javascript = `
     
     function init() {
@@ -54,7 +60,7 @@ export default class Plan extends Component {
 
       return (
         <WebView
-            source={{uri:"http://php.marinpetrunic.com/jf/map.html#b16"}}
+            source={{uri:"http://php.marinpetrunic.com/jf/map.html#"+location}}
             injectedJavaScript={javascript}
         />
     );

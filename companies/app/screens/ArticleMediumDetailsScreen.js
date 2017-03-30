@@ -16,6 +16,7 @@ import {
 } from '@shoutem/ui';
 import { NavigationBar } from '@shoutem/ui/navigation';
 import { connectStyle } from '@shoutem/theme';
+import { navigateTo } from '@shoutem/core/navigation';
 
 import * as _ from 'lodash';
 import { connect } from 'react-redux';
@@ -30,7 +31,13 @@ class ArticleMediumDetailsScreen extends React.Component {
     nextArticle: React.PropTypes.object,
     openArticle: React.PropTypes.func,
     openURL: React.PropTypes.func,
+    navigateTo: React.PropTypes.func
   };
+
+  constructor(props, context) {
+    super(props, context);
+    this.openCompanyBoothLocation = this.openCompanyBoothLocation.bind(this);
+  }
 
   getNavBarProps() {
     const { article } = this.props;
@@ -104,6 +111,16 @@ class ArticleMediumDetailsScreen extends React.Component {
     );
   }
 
+  openCompanyBoothLocation() {
+    this.props.navigateTo({
+      screen: 'morrigan.floor-plan.Plan',
+      title: 'Blem',
+      props: {
+        location: "B16",
+      },
+    });
+  }
+
   renderWebsiteButton(article) {
     const { openURL } = this.props;
 
@@ -114,7 +131,7 @@ class ArticleMediumDetailsScreen extends React.Component {
           <Icon name="web" />
           <Text>WEBSITE</Text>
         </Button>
-        <Button styleName="full-width muted">
+        <Button styleName="full-width muted" onPress={this.openCompanyBoothLocation}>
           <Icon name="address-full" />
           <Text>BOOTH LOCATION</Text>
         </Button>
@@ -161,6 +178,7 @@ export const mapStateToProps = (state, ownProps) => {
 
 export const mapDispatchToProps = {
   openURL: openUrlAction,
+  navigateTo: navigateTo
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(
