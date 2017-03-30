@@ -103,7 +103,7 @@ class ArticleMediumDetailsScreen extends React.Component {
             {this.renderRichCompanyProp('OPENINGS', article.openings)}
             {this.renderRichCompanyProp('COMPANY DESCRIPTION', article.body)}
 
-            {this.renderWebsiteButton(article)}
+            {this.renderButtons(article)}
             {this.renderUpNext()}
           </View>
         </ScrollView>
@@ -116,12 +116,12 @@ class ArticleMediumDetailsScreen extends React.Component {
       screen: 'morrigan.floor-plan.Plan',
       title: 'Blem',
       props: {
-        location: "B16",
+        location: this.props.article.location,
       },
     });
   }
 
-  renderWebsiteButton(article) {
+  renderButtons(article) {
     const { openURL } = this.props;
 
     if(article.webUrl) {

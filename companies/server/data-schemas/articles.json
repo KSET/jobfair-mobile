@@ -47,6 +47,11 @@
       "format": "attachment",
       "title": "Image",
       "referencedSchema": "shoutem.core.image-attachments"
+    },
+    "location": {
+      "type": "string",
+      "format": "single-line",
+      "title": "Booth location"
     }
   }
 }
