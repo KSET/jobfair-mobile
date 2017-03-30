@@ -114,7 +114,7 @@ class ArticleMediumDetailsScreen extends React.Component {
   openCompanyBoothLocation() {
     this.props.navigateTo({
       screen: 'morrigan.floor-plan.Plan',
-      title: 'Blem',
+      title: this.props.article.title,
       props: {
         location: this.props.article.location,
       },
