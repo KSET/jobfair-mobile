@@ -51,7 +51,7 @@ export default class ListEventView extends React.Component {
           <EventImage styleName="small rounded-corners" event={event} />
           <View styleName="vertical stretch space-between">
             <Subtitle styleName="">{event.name}</Subtitle>
-            <Caption>{formatDate(event.startTime)} @ {this.formatLocation(event.location)}</Caption>
+            <Caption>{formatDate(event.startTime)}</Caption>
           </View>
           <Button styleName="right-icon" onPress={this.action}>
             <Icon name="add-event" />
