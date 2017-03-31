@@ -47,11 +47,6 @@ export class ListScreen extends CmsListScreen {
     };
   }
 
-  componentWillMount() {
-    super.componentWillMount();
-    //this.props.find('morrigan.companies.articles');
-  }
-
   getNextEvent(event) {
     const { data } = this.props;
     const currentEventIndex = _.findIndex(data, { id: event.id });

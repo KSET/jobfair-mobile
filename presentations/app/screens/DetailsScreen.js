@@ -58,6 +58,7 @@ export class DetailsScreen extends React.Component {
 
   openCompanyPress() {
     const company = this.props.event.relatedLink;
+    company['image'] = this.props.event.image;
 
     this.props.navigateTo({
       screen: 'morrigan.companies.ArticleMediumDetailsScreen',

@@ -34,7 +34,7 @@ export default class NextEvent extends React.Component {
       <TouchableOpacity onPress={this.handlePress}>
         <Image
           styleName="large-ultra-wide"
-          source={{ uri: _.get(event.relatedLink, 'image.url') }}
+          source={{ uri: _.get(event, 'image.url') }}
         >
           <View styleName="fill-parent overlay vertical md-gutter space-between">
             <Caption styleName="bold bright">UP NEXT</Caption>

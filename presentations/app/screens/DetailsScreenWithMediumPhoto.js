@@ -26,7 +26,7 @@ class DetailsScreenWithMediumPhoto extends DetailsScreen {
   }
 
   renderHeader(event) {
-    if (!_.has(event, 'relatedLink.image.url')) {
+    if (!_.has(event, 'image.url')) {
       return this.renderWithoutPhoto(event);
     }
 
@@ -62,7 +62,7 @@ class DetailsScreenWithMediumPhoto extends DetailsScreen {
   renderScreen() {
     const { event } = this.props;
 
-    if (!_.has(event, 'relatedLink.image.url')) {
+    if (!_.has(event, 'image.url')) {
       // Do not render in full screen, this layout have NavBar
       return super.renderScreen(false);
     }

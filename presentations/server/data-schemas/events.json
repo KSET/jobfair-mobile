@@ -37,6 +37,12 @@
       "title": "Lecturer",
       "type": "string"
     },
+    "image": {
+      "type": "object",
+      "format": "attachment",
+      "title": "Image",
+      "referencedSchema": "shoutem.core.image-attachments"
+    },
     "relatedLink": {
       "type": "object",
       "format": "entity-reference",
