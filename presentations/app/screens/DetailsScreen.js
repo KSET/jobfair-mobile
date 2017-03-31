@@ -21,11 +21,14 @@ import { NavigationBar } from '@shoutem/ui/navigation';
 import { navigateTo } from '@shoutem/core/navigation';
 
 import { formatDate, addToCalendar } from '../shared/Calendar';
+import NextEvent from '../components/NextEvent'
 
 export class DetailsScreen extends React.Component {
   static propTypes = {
     event: React.PropTypes.object.isRequired,
     navigateTo: React.PropTypes.func,
+    nextEvent: React.PropTypes.object,
+    openEvent: React.PropTypes.func,
   };
 
   constructor(props, context) {
@@ -154,6 +157,17 @@ export class DetailsScreen extends React.Component {
     ) : null;
   }
 
+  renderUpNext() {
+    const { nextEvent, openEvent } = this.props;
+    if (nextEvent && openEvent) {
+      return (
+        <NextEvent event={nextEvent} openEvent={openEvent} />
+      );
+    }
+
+    return null;
+  }
+
   renderScreen(fullScreen) {
     const { event } = this.props;
     const screenStyleName = `${fullScreen ? ' full-screen' : ''} paper`;
@@ -167,6 +181,7 @@ export class DetailsScreen extends React.Component {
           {this.renderDescription(event)}
           {this.renderLecturer(event)}
           {this.renderCompanyLink(event.relatedLink)}
+          {this.renderUpNext()}
         </ScrollView>
       </Screen>
     );

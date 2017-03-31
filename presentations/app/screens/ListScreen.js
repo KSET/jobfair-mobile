@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { InteractionManager } from 'react-native';
+import _ from 'lodash';
 
 import { navigateTo } from '@shoutem/core/navigation';
 import { connectStyle } from '@shoutem/theme';
@@ -51,12 +52,23 @@ export class ListScreen extends CmsListScreen {
     //this.props.find('morrigan.companies.articles');
   }
 
+  getNextEvent(event) {
+    const { data } = this.props;
+    const currentEventIndex = _.findIndex(data, { id: event.id });
+
+    return data[currentEventIndex + 1];
+  }
+
   openDetailsScreen(event) {
+    const nextEvent = this.getNextEvent(event);
+
     this.props.navigateTo({
       screen: ext('DetailsScreen'),
       title: event.name,
       props: {
         event,
+        nextEvent,
+        openEvent: this.openDetailsScreen,
       },
     });
   }
