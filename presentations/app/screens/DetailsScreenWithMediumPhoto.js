@@ -32,10 +32,14 @@ class DetailsScreenWithMediumPhoto extends DetailsScreen {
 
     return (
       <View>
-        <EventImage styleName="large-wide" event={event} />
-        <Tile styleName="text-centric">
-          {this.renderHeadlineDetails(event)}
-        </Tile>
+        <EventImage styleName="large-wide" event={event}>
+          <Tile
+            styleName="text-centric"
+            animationName="hero"
+          >
+            {this.renderHeadlineDetails(event)}
+          </Tile>
+        </EventImage>
       </View>
     );
   }
