@@ -32,7 +32,7 @@ export default class Plan extends Component {
         var coords = target.coords.split(',');
         var x = (Number(coords[0]) + Number(coords[2])) / 2 + 7;
         var y = (Number(coords[1]) + Number(coords[3])) / 2 + 5;
-        document.getElementById('body').insertAdjacentHTML('beforeend', '<img id="pin" src="./pin.png" style="width:auto;height:auto;position:absolute; left:' + (x - offsetX) + 'px; top:' + (y - offsetY) + 'px;" />');
+        document.getElementById('body').insertAdjacentHTML('beforeend', '<img id="pin" class="bounce" src="./pin.png" style="width:auto;height:auto;position:absolute; left:' + (x - offsetX) + 'px; top:' + (y - offsetY) + 'px;" />');
         window.scrollTo(x - offsetX - window.innerWidth/2, y - offsetY - window.innerHeight/2);
     }
 
@@ -41,10 +41,16 @@ export default class Plan extends Component {
             document.getElementById('pin').remove();
         }
         putPin(target);
-        document.getElementById('footer').innerHTML = '<h1>' + target.getAttribute('id') + ' - ' + target.getAttribute('data-company') + '</h1>';
+        document.getElementById('footer').innerHTML = '<h1>' + target.getAttribute('data-company') + '</h1>';
     }
+    
     function resolve(e) {
         toggleCompany(e.target);
+    }
+    
+    function focus(e) {
+        var pin = document.getElementById('pin');
+        window.scrollTo(pin.style.left - window.innerWidth/2, pin.style.top - window.innerHeight/2);
     }
     
 
@@ -53,6 +59,9 @@ export default class Plan extends Component {
         areas[i].addEventListener("click", resolve);
         areas[i].addEventListener("tap", resolve);
     }
+    
+    document.getElementById('footer').addEventListener("click", focus);
+    document.getElementById('footer').addEventListener("tap", focus);
     
     init();
 

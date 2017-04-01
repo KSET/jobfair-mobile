@@ -3,6 +3,16 @@
 <head>
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <script type="text/javascript" src="imageMapResizer.min.js"></script>
+    <style>
+        #footer {
+            position: fixed;
+            Width: 100%;
+            bottom: 0;
+            text-align: center;
+            border-top: 3px solid black;
+            background-color: white;
+        }
+    </style>
 </head>
 <body id="body">
 <div id="container">
@@ -12,8 +22,8 @@
         <area alt="" id="B16" data-company="FIVE" shape="rect" coords="647,173,707,202"/>
     </map>
 
-    <div id="footer" style="text-align: center; border-top: 3px solid black;">
-    </div>
+    <div id="footer"></div>
+
     <script type="text/javascript">
         imageMapResize();
     </script>
