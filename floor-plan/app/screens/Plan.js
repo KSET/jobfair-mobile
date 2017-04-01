@@ -69,7 +69,7 @@ export default class Plan extends Component {
 
       return (
         <WebView
-            source={{uri:"http://php.marinpetrunic.com/jf/map.html#"+location}}
+            source={{uri:"https://jobfair.fer.unizg.hr/mobile/floor-plan/map.html#"+location}}
             injectedJavaScript={javascript}
         />
     );
