@@ -79,12 +79,24 @@
       "type": "string",
       "displayPriority": 13
     },
+    "youtubeMobile": {
+      "format": "single-line",
+      "title": "Youtube mobile url",
+      "type": "string",
+      "displayPriority": 14
+    },
+    "youtubeWeb": {
+      "format": "single-line",
+      "title": "Youtube web url",
+      "type": "string",
+      "displayPriority": 15
+    },
     "image": {
       "format": "attachment",
       "title": "Image",
       "type": "object",
       "referencedSchema": "shoutem.core.image-attachments",
-      "displayPriority": 14
+      "displayPriority": 16
     }
   },
   "titleProperty": "name",
