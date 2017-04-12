@@ -13,6 +13,7 @@ import {
   Subtitle,
   TouchableOpacity,
   ScrollView,
+  Text,
 } from '@shoutem/ui';
 import {
   RichMedia,
@@ -254,6 +255,9 @@ export class AboutScreen extends BaseAboutScreen {
           {this.renderFooterButtons(profile)}
           {this.renderInfo(profile)}
           {this.renderMap(profile)}
+          <View styleName="horizontal h-center">
+            <Text>Copyright 2017. KSET</Text>
+          </View>
         </View>
       </ScrollView>
     );
