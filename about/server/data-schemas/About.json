@@ -81,22 +81,22 @@
     },
     "youtubeMobile": {
       "format": "single-line",
-      "title": "Facebook mobile url",
+      "title": "Youtube mobile url",
       "type": "string",
-      "displayPriority": 12
+      "displayPriority": 14
     },
     "youtubeWeb": {
       "format": "single-line",
-      "title": "Facebook web url",
+      "title": "Youtube web url",
       "type": "string",
-      "displayPriority": 13
+      "displayPriority": 15
     },
     "image": {
       "format": "attachment",
       "title": "Image",
       "type": "object",
       "referencedSchema": "shoutem.core.image-attachments",
-      "displayPriority": 14
+      "displayPriority": 16
     }
   },
   "titleProperty": "name",
