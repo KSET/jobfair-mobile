@@ -238,6 +238,13 @@ export class AboutScreen extends BaseAboutScreen {
             title="Facebook"
             openURL={openURL}
           />
+          <SocialButton
+            icon="music-video"
+            url={profile.youtubeMobile}
+            alternativeUrl={profile.youtubeWeb}
+            title="Youtube"
+            openURL={openURL}
+          />
         </View>
       </View>
     </View>
