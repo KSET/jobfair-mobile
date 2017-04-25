@@ -34,7 +34,7 @@ export default class FeaturedPhotoView extends React.Component {
         return (
             <View key={photo.id}>
                 <TouchableOpacity onPress={this.onPress}>
-                    <View styleName="sm-gutter featured" style={{ backgroundColor: '#cccccc' }}>
+                    <View styleName="sm-gutter featured">
                         <Image
                             styleName="featured"
                             source={photo.source}

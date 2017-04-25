@@ -1,0 +1,52 @@
+{
+  "name": "floor-plan-photos",
+  "version": "0.9.6",
+  "title": "Floor plan with Photos",
+  "description": "Show a floor plan with photos",
+  "platform": ">=1.0.21",
+  "icon" : "server/assets/add-photos-image.png",
+  "dependencies": [
+    "shoutem.layouts",
+    "shoutem.cms"
+  ],
+  "categories": ["media"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KSET/jobfair-mobile"
+  },
+  "shortcuts": [{
+      "name": "photos-shortcut",
+      "title": "Manual photos",
+      "screen": "@.PhotosList",
+      "icon": "theme://photo.png",
+      "adminPages": [{
+        "page": "shoutem.cms.CmsPage",
+        "title": "Content",
+        "parameters": {
+          "schema": "@.Photos"
+        }
+      },
+      {
+        "page": "shoutem.layouts.LayoutPage",
+        "title": "Layout"
+      }]
+  }],
+  "screens": [{
+    "name": "PhotosList",
+    "title": "List",
+    "navigatesTo":["@.PhotosList"],
+    "image":"./server/assets/screens/layout-large-list.png"
+  },{
+    "name": "PhotosGrid",
+    "title": "Grid",
+    "extends": "@.PhotosList",
+    "image":"./server/assets/screens/layout-grid.png"
+  },{
+    "name": "PhotoDetails",
+    "title": "PhotoDetails"
+  }],
+  "dataSchemas": [{
+    "name": "Photos",
+    "path": "server/schemas/photos.json"
+  }]
+}
