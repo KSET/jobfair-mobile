@@ -1,0 +1,13 @@
+{
+  "name": "morrigan.floor-plan-svg",
+  "version": "0.0.1",
+  "description": "Floor plan using animated SVG images.",
+  "dependencies": {
+    "react-native-svg-uri": "^1.2.0"
+  },
+  "rnpm": {
+    "commands": {
+      "postlink": "react-native link react-native-svg"
+    }
+  }
+}

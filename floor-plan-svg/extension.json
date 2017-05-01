@@ -1,0 +1,19 @@
+{
+  "name": "floor-plan-svg",
+  "title": "Map",
+  "version": "0.0.1",
+  "description": "Floor plan using animated SVG images.",
+  "platform": "1.0.*",
+  "screens": [
+    {
+      "name": "Image"
+    }
+  ],
+  "shortcuts": [
+    {
+      "title": "Home",
+      "name": "Home",
+      "screen": "@.Image"
+    }
+  ]
+}
