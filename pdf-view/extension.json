@@ -1,0 +1,19 @@
+{
+  "name": "pdf-view",
+  "title": "Pdf-view",
+  "version": "0.0.1",
+  "description": "View PDF extension",
+  "platform": "1.0.*",
+  "screens": [
+    {
+      "name": "Main"
+    }
+  ],
+  "shortcuts": [
+    {
+      "title": "Main",
+      "name": "Main",
+      "screen": "@.Main"
+    }
+  ]
+}

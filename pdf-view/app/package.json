@@ -1,0 +1,15 @@
+{
+  "name": "morrigan.pdf-view",
+  "version": "0.0.1",
+  "description": "View PDF extension",
+  "dependencies": {
+    "react-native-fetch-blob": "^0.10.5",
+    "react-native-fs": "^2.0.1-rc.2",
+    "react-native-pdf-view": "^0.3.2"
+  },
+  "rnpm": {
+    "commands": {
+      "postlink": "node node_modules/morrigan.pdf-view/scripts/run.js"
+    }
+  }
+}
