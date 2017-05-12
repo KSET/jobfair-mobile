@@ -1,19 +1,16 @@
-import React, {
-  Component
-} from 'react';
+import React from 'react';
 import {
-  StyleSheet,
   View
-} from 'react-native';
+} from '@shoutem/ui';
 import SvgUri from 'react-native-svg-uri';
 import { mapXMLString } from '../assets/map';
 
-export default class Image extends Component {
+export default class Image extends React.Component {
   render() {
     // Bug with static SVG file on Android in release mode,
     // so using XML string to load the image.
     return (
-      <View style={styles.container}>
+      <View>
         <SvgUri
           width="200"
           height="200"
@@ -24,10 +21,3 @@ export default class Image extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
