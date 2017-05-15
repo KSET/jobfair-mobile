@@ -36,7 +36,6 @@ class ArticleMediumDetailsScreen extends React.Component {
 
   constructor(props, context) {
     super(props, context);
-    this.openCompanyBoothLocation = this.openCompanyBoothLocation.bind(this);
   }
 
   getNavBarProps() {
@@ -111,29 +110,15 @@ class ArticleMediumDetailsScreen extends React.Component {
     );
   }
 
-  openCompanyBoothLocation() {
-    this.props.navigateTo({
-      screen: 'morrigan.floor-plan.Plan',
-      title: this.props.article.title,
-      props: {
-        location: this.props.article.location,
-      },
-    });
-  }
-
   renderButtons(article) {
     const { openURL } = this.props;
 
-    if(article.webUrl) {
+    if (article.webUrl) {
       return(
       <View styleName="horizontal flexible">
         <Button styleName="full-width muted" onPress={() => openURL(article.webUrl)}>
           <Icon name="web" />
           <Text>WEBSITE</Text>
-        </Button>
-        <Button styleName="full-width muted" onPress={this.openCompanyBoothLocation}>
-          <Icon name="address-full" />
-          <Text>BOOTH LOCATION</Text>
         </Button>
       </View>
       );
