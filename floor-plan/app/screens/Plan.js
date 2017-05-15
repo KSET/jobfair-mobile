@@ -14,7 +14,7 @@ export default class Plan extends Component {
         const {location} = this.props;
         return (
             <WebView
-                source={{uri: "https://jobfair.fer.unizg.hr/en/floor_plan#" + location + "?navigation=false"}}
+                source={{uri: "https://jobfair.fer.unizg.hr/en/floor_plan?navigation=false"}}
             />
         );
     }
