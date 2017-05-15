@@ -1,7 +1,7 @@
 {
   "name": "floor-plan",
   "title": "FloorPlan",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Extension for displaying html clickable floor plan for Job Fair",
   "platform": "1.0.*",
   "screens": [
