@@ -1,0 +1,9 @@
+{
+  "name": "shoutem.persist",
+  "version": "0.1.8-build1488546582428",
+  "private": true,
+  "main": "index.js",
+  "peerDependencies": {
+    "@shoutem/core": "*"
+  }
+}

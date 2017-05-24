@@ -1,0 +1,102 @@
+{
+  "name": "navigation",
+  "version": "0.5.25",
+  "type": "custom",
+  "title": "Main Navigation",
+  "description": "App-level navigation",
+  "platform": "1.0.*",
+  "categories": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shoutem/extensions"
+  },
+  "icon": "server/assets/add-main-navigation-image.png",
+  "shortcuts": [{
+    "name": "icons",
+    "icon": "",
+    "title": "Main navigation",
+    "screen": "@.TabBar",
+    "type": "navigation",
+    "unique": true,
+    "adminPages": [
+      {
+        "page": "shoutem.layouts.LayoutPage",
+        "title": "Layout"
+      },
+      {
+        "page": "shoutem.navigation.IconsPage",
+        "title": "Icons"
+      }
+    ]
+  }],
+  "screens": [{
+    "name": "TabBar",
+    "title": "Tab bar",
+    "image": "./server/assets/screens/tabbar.png",
+    "groupTitle": "Choose navigation",
+    "settingsPage": {
+      "page": "shoutem.navigation.TabBar"
+    },
+    "settings": {
+      "startingScreen": null,
+      "showIcon": true,
+      "showText": true
+    }
+  }, {
+    "name": "Drawer",
+    "title": "Drawer",
+    "image": "./server/assets/screens/drawer.png",
+    "extends": "@.TabBar",
+    "settingsPage": {
+      "page": "shoutem.navigation.Drawer"
+    },
+    "settings": {
+      "startingScreen": null,
+      "showIcon": true,
+      "showText": true
+    }
+  }, {
+    "name": "IconGrid",
+    "title": "Icon grid",
+    "image": "./server/assets/screens/icon.png",
+    "extends": "@.TabBar",
+    "settingsPage": {
+      "page": "shoutem.navigation.IconGrid"
+    },
+    "settings": {
+      "iconSize": "medium",
+      "scrolling": "paged",
+      "gridAlignment": "bottomCenter",
+      "cols": 3,
+      "rows": 3,
+      "parallaxEffect": "onDeviceOrientation",
+      "backgroundImage": "",
+      "backgroundWidth": 48,
+      "backgroundHeight": 48
+    }
+  }, {
+    "name": "List",
+    "title": "List",
+    "image": "./server/assets/screens/list.png",
+    "extends": "@.TabBar",
+    "settingsPage": {
+      "page": "shoutem.navigation.List"
+    },
+    "settings": {
+      "backgroundImage": "",
+      "parallaxEffect": "onScroll",
+      "inItemAlignment": "center",
+      "listAlignment": "top",
+      "topOffset": 120,
+      "showText": true,
+      "showIcon": false,
+      "itemHeight": 48
+    }
+  }, {
+    "name": "None",
+    "title": "None",
+    "image": "./server/assets/screens/none.png",
+    "extends": "@.TabBar",
+    "settingsPage": {}
+  }]
+}

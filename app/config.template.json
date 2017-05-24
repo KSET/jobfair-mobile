@@ -1,0 +1,19 @@
+{
+  "appId": 2080,
+  "serverApiEndpoint": "apps.dev.sauros.hr",
+  "legacyApiEndpoint": "api.dev.sauros.hr",
+  "authorization": "",
+  "production": false,
+  "offlineMode": false,
+  "debug": true,
+  "configurationFilePath": "./temp/configuration.json",
+  "workingDirectories": [],
+  "excludePackages": [],
+  "extensionsJsPath": "./extensions.js",
+  "baseAppId": 2470,
+  "cacheFolder": "./cached-bundles",
+  "cacheBaseApp": false,
+  "binaryVersionName": null,
+  "binaryVersionCode": null,
+  "skipNativeDependencies": false
+}

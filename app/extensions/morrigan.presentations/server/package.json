@@ -1,0 +1,9 @@
+{
+  "name": "morrigan.presentations",
+  "version": "0.0.1-build1491130824248",
+  "private": true,
+  "main": "index.js",
+  "peerDependencies": {
+    "@shoutem/core": "*"
+  }
+}

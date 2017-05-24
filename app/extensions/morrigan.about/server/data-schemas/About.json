@@ -1,0 +1,104 @@
+{
+  "title": "About",
+  "properties": {
+    "name": {
+      "format": "single-line",
+      "title": "Name",
+      "type": "string",
+      "displayPriority": 1
+    },
+    "info": {
+      "format": "html",
+      "title": "Information",
+      "type": "string",
+      "displayPriority": 2
+    },
+    "location": {
+      "format": "geolocation",
+      "title": "Location",
+      "type": "object",
+      "displayPriority": 3
+    },
+    "hours": {
+      "format": "html",
+      "title": "Opening hours",
+      "type": "string",
+      "displayPriority": 4
+    },
+    "web": {
+      "format": "uri",
+      "title": "Website",
+      "type": "string",
+      "displayPriority": 5
+    },
+    "phone": {
+      "format": "single-line",
+      "title": "Phone",
+      "type": "string",
+      "displayPriority": 6
+    },
+    "twitterMobile": {
+      "format": "single-line",
+      "title": "Twitter mobile url",
+      "type": "string",
+      "displayPriority": 7
+    },
+    "twitterWeb": {
+      "format": "single-line",
+      "title": "Twitter web url",
+      "type": "string",
+      "displayPriority": 8
+    },
+    "mail": {
+      "format": "single-line",
+      "title": "E-mail",
+      "type": "string",
+      "displayPriority": 9
+    },
+    "linkedinMobile": {
+      "format": "single-line",
+      "title": "Linkedin mobile url",
+      "type": "string",
+      "displayPriority": 10
+    },
+    "linkedinWeb": {
+      "format": "single-line",
+      "title": "Linkedin web url",
+      "type": "string",
+      "displayPriority": 11
+    },
+    "facebookMobile": {
+      "format": "single-line",
+      "title": "Facebook mobile url",
+      "type": "string",
+      "displayPriority": 12
+    },
+    "facebookWeb": {
+      "format": "single-line",
+      "title": "Facebook web url",
+      "type": "string",
+      "displayPriority": 13
+    },
+    "youtubeMobile": {
+      "format": "single-line",
+      "title": "Youtube mobile url",
+      "type": "string",
+      "displayPriority": 14
+    },
+    "youtubeWeb": {
+      "format": "single-line",
+      "title": "Youtube web url",
+      "type": "string",
+      "displayPriority": 15
+    },
+    "image": {
+      "format": "attachment",
+      "title": "Image",
+      "type": "object",
+      "referencedSchema": "shoutem.core.image-attachments",
+      "displayPriority": 16
+    }
+  },
+  "titleProperty": "name",
+  "type": "object"
+}

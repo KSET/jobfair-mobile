@@ -1,0 +1,10 @@
+{
+  "name": "morrigan.rubicon-theme",
+  "version": "0.1.44-build1491130844558",
+  "description": "Rubicon theme is a...",
+  "rnpm": {
+    "assets": [
+      "fonts"
+    ]
+  }
+}

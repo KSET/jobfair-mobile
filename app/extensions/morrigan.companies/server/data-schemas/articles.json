@@ -1,0 +1,57 @@
+{
+  "name": "articles",
+  "title": "Companies",
+  "titleProperty": "title",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "format": "single-line",
+      "title": "Title",
+      "minLength": 2,
+      "maxLength": 200,
+      "required": true
+    },
+    "webUrl": {
+      "type": "string",
+      "format": "single-line",
+      "title": "Web Url"
+    },
+    "industry": {
+      "type": "string",
+      "format": "single-line",
+      "title": "Industry"
+    },
+    "studentProfile": {
+      "type": "string",
+      "format": "multi-line",
+      "title": "Student Profile"
+    },
+    "openings": {
+      "type": "string",
+      "format": "html",
+      "title": "Openings"
+    },
+    "featured": {
+      "type": "boolean",
+      "format": "boolean",
+      "title": "Featured"
+    },
+    "body": {
+      "type": "string",
+      "format": "html",
+      "title": "Body"
+    },
+    "image": {
+      "type": "object",
+      "format": "attachment",
+      "title": "Image",
+      "referencedSchema": "shoutem.core.image-attachments"
+    },
+    "location": {
+      "type": "string",
+      "format": "single-line",
+      "title": "Booth location"
+    }
+  }
+}

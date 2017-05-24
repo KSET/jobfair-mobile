@@ -1,0 +1,8 @@
+{
+  "name": "morrigan.navigation",
+  "version": "0.5.25-build1491130948835",
+  "description": "Main navigation",
+  "dependencies": {
+    "react-native-side-menu": "0.20.0"
+  }
+}

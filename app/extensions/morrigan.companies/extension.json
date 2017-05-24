@@ -1,0 +1,50 @@
+{
+  "name": "companies",
+  "version": "0.9.4",
+  "title": "Companies",
+  "description": "Show list of companies",
+  "platform": "1.0.*",
+  "icon": "server/assets/add-news-image.png",
+  "categories": ["content"],
+  "dependencies": [
+    "shoutem.layouts",
+    "shoutem.cms"
+  ],
+  "shortcuts": [{
+    "name": "news-shortcut",
+    "title": "News",
+    "icon": "theme://news.png",
+    "screen": "@.ArticlesListScreen",
+    "adminPages": [{
+      "page": "shoutem.cms.CmsPage",
+      "title": "Content",
+      "parameters": {
+        "schema": "@.articles"
+      }
+    }, {
+      "page":"shoutem.layouts.LayoutPage",
+      "title": "Layout"
+    }]
+  }],
+  "screens": [{
+    "name": "ArticlesListScreen",
+    "title": "List",
+    "image": "./server/assets/screens/list.png",
+    "navigatesTo": [
+      "@.ArticleMediumDetailsScreen"
+    ]
+  }, {
+    "name": "ArticlesGridScreen",
+    "title": "Grid",
+    "extends": "@.ArticlesListScreen",
+    "image": "./server/assets/screens/grid.png"
+  }, {
+    "name":"ArticleMediumDetailsScreen",
+    "title": "Regular details",
+    "image": "./server/assets/screens/medium-details.png"
+  }],
+  "dataSchemas": [{
+    "name": "articles",
+    "path": "./server/data-schemas/articles.json"
+  }]
+}

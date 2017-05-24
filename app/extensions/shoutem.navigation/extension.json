@@ -1,0 +1,127 @@
+{
+  "name": "navigation",
+  "version": "0.5.29",
+  "type": "system",
+  "title": "Main Navigation",
+  "description": "App-level navigation",
+  "platform": ">=1.0.21",
+  "categories": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shoutem/extensions"
+  },
+  "icon": "server/assets/add-main-navigation-image.png",
+  "shortcuts": [{
+    "name": "icons",
+    "icon": "",
+    "title": "Main navigation",
+    "screen": "@.TabBar",
+    "type": "navigation",
+    "unique": true,
+    "adminPages": [
+      {
+        "page": "shoutem.layouts.LayoutPage",
+        "title": "Layout"
+      },
+      {
+        "page": "@.IconsPage",
+        "title": "Icons"
+      }
+    ]
+  }],
+  "screens": [{
+    "name": "TabBar",
+    "title": "Tab bar",
+    "image": "./server/assets/screens/tabbar.png",
+    "groupTitle": "Choose navigation",
+    "settingsPage": {
+      "page": "@.TabBar"
+    },
+    "settings": {
+      "startingScreen": null,
+      "showIcon": true,
+      "showText": true
+    }
+  }, {
+    "name": "Drawer",
+    "title": "Drawer",
+    "image": "./server/assets/screens/drawer.png",
+    "extends": "@.TabBar",
+    "settingsPage": {
+      "page": "@.Drawer"
+    },
+    "settings": {
+      "startingScreen": null,
+      "showIcon": true,
+      "showText": true
+    }
+  }, {
+    "name": "IconGrid",
+    "title": "Icon grid",
+    "image": "./server/assets/screens/icon.png",
+    "extends": "@.TabBar",
+    "settingsPage": {
+      "page": "@.IconGrid"
+    },
+    "settings": {
+      "iconSize": "medium",
+      "scrolling": "paged",
+      "gridAlignment": "bottomCenter",
+      "cols": 3,
+      "rows": 3,
+      "parallaxEffect": "onDeviceOrientation",
+      "backgroundImage": "",
+      "backgroundWidth": 48,
+      "backgroundHeight": 48
+    }
+  }, {
+    "name": "List",
+    "title": "List",
+    "image": "./server/assets/screens/list.png",
+    "extends": "@.TabBar",
+    "settingsPage": {
+      "page": "@.List"
+    },
+    "settings": {
+      "backgroundImage": "",
+      "parallaxEffect": "onScroll",
+      "inItemAlignment": "center",
+      "listAlignment": "top",
+      "topOffset": 120,
+      "showText": true,
+      "showIcon": false,
+      "itemHeight": 48
+    }
+  }, {
+    "name": "None",
+    "title": "None",
+    "image": "./server/assets/screens/none.png",
+    "extends": "@.TabBar",
+    "settingsPage": {}
+  }],
+  "pages": [{
+    "name": "List",
+    "path": "filename_ending_in_js_indicating_component.js",
+    "type": "native-component"
+  }, {
+    "name": "CardList",
+    "path": "filename_ending_in_js_indicating_component.js",
+    "type": "native-component"
+  }, {
+    "name": "IconGrid",
+    "path": "filename_ending_in_js_indicating_component.js",
+    "type": "native-component"
+  }, {
+    "name": "Drawer",
+    "path": "filename_ending_in_js_indicating_component.js",
+    "type": "native-component"
+  }, {
+    "name": "TabBar",
+    "path": "filename_ending_in_js_indicating_component.js",
+    "type": "native-component"
+  }, {
+    "name": "IconsPage",
+    "path": "filename_ending_in_js_indicating_component.js",
+    "type": "native-component"
+  }]
+}
